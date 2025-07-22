@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Header from './components/header';
+
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Reservation from './pages/Reservation';
@@ -9,12 +11,13 @@ import Commercial from './pages/Commercial';
 function App() {
   return (
     <Router>
-      <nav style={{ textAlign: 'center', padding: '1rem', backgroundColor: 'yellow' }}>
-        <Link to="/" style={{ margin: '0 1rem', color: 'black' }}>Home</Link>
-        <Link to="/services" style={{ margin: '0 1rem', color: 'black' }}>Services</Link>
-        <Link to="/reservation" style={{ margin: '0 1rem', color: 'black' }}>Reservation</Link>
-        <Link to="/about" style={{ margin: '0 1rem', color: 'black' }}>About</Link>
-        <Link to="/commercial" style={{ margin: '0 1rem', color: 'black' }}>Commercial</Link>
+      <Header />
+      <nav style={styles.nav}>
+        <Link to="/" style={styles.link}>Home</Link>
+        <Link to="/services" style={styles.link}>Services</Link>
+        <Link to="/reservation" style={styles.link}>Reservation</Link>
+        <Link to="/about" style={styles.link}>About</Link>
+        <Link to="/commercial" style={styles.link}>Commercial</Link>
       </nav>
 
       <Routes>
@@ -27,6 +30,22 @@ function App() {
     </Router>
   );
 }
+
+const styles = {
+  nav: {
+    backgroundColor: '#222',
+    padding: '1rem',
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '2rem',
+    borderBottom: '2px solid yellow',
+  },
+  link: {
+    color: 'yellow',
+    textDecoration: 'none',
+    fontWeight: 'bold',
+  },
+};
 
 export default App;
 
