@@ -8,7 +8,7 @@ function Home() {
       <div>
         {/* 🔹 Cover Image */}
         <img
-          src="public/images/mechanicshopcoverimage.pdf"
+          src="/images/mechanicshopcoverimage.webp"
           alt="Mechanic at work"
           style={{ width: '100%', maxHeight: '400px', objectFit: 'cover' }}
         />
