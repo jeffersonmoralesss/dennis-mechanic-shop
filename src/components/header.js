@@ -8,7 +8,7 @@ function Header() {
       </div>
       <div style={styles.right}>
         <a href="tel:2407647004" style={styles.icon}>
-          📞 <span style={styles.label}>Call</span>
+          📞 <span style={styles.label}>240-764-7004</span>
         </a>
         <a
           href="https://www.google.com/maps/search/?api=1&query=4720+Baltimore+Ave+Hyattsville+MD+20781"
@@ -16,7 +16,7 @@ function Header() {
           rel="noopener noreferrer"
           style={styles.icon}
         >
-          📍 <span style={styles.label}>Location</span>
+          📍 <span style={styles.label}>4720 Baltimore Ave Hyattsville, MD 20781</span>
         </a>
         <span style={styles.menu}>☰</span>
       </div>
