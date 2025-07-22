@@ -7,11 +7,11 @@ function Header() {
         <span style={styles.logo}>Dennis Mechanic Shop</span>
       </div>
       <div style={styles.right}>
-        <a href="tel:5551234567" style={styles.icon}>
+        <a href="tel:2407647004" style={styles.icon}>
           📞 <span style={styles.label}>Call</span>
         </a>
         <a
-          href="https://goo.gl/maps/CgD3uZ5FYzbnhksg6"
+          href="https://www.google.com/maps/search/?api=1&query=4720+Baltimore+Ave+Hyattsville+MD+20781"
           target="_blank"
           rel="noopener noreferrer"
           style={styles.icon}
