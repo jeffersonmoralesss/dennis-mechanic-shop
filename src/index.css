@@ -1,18 +1,16 @@
 body {
   margin: 0;
-  padding: 0;
-  background-color: black;
+  background-color: white;
   color: yellow;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
 }
 
-h1 {
-  text-align: center;
-  padding: 1rem;
-  font-size: 2.5rem;
+nav a {
+  font-weight: bold;
+  text-decoration: none;
 }
 
-p {
+h2 {
   text-align: center;
-  font-size: 1.2rem;
+  margin-top: 2rem;
 }
