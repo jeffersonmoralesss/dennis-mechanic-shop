@@ -4,7 +4,7 @@ function Header() {
   return (
     <header style={styles.header}>
       <div style={styles.left}>
-        <span style={styles.logo}>Dennis Auto</span>
+        <span style={styles.logo}>Dennis Mechanic Shop</span>
       </div>
       <div style={styles.right}>
         <a href="tel:5551234567" style={styles.icon}>

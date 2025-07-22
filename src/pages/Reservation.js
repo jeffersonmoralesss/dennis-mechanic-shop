@@ -6,7 +6,7 @@ function Reservation() {
           href="https://vipshopmanagement.com/schedule-appointment.php?SubID=RZZcwDvHbo6Kg5sA"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: 'yellow' }}
+          style={{ color: 'black' }}
         >
           Click here to book an appointment
         </a>
