@@ -4,7 +4,7 @@ function Header() {
   return (
     <header style={styles.header}>
       <div style={styles.left}>
-        <span style={styles.logo}>Dennis Mechanic Shop</span>
+        <span style={styles.logo}>Dennis General Mechanic</span>
       </div>
       <div style={styles.right}>
         <a href="tel:2407647004" style={styles.icon}>
@@ -25,7 +25,7 @@ function Header() {
 
 const styles = {
   header: {
-    backgroundColor: 'white',
+    backgroundColor: 'yellow',
     color: 'yellow',
     display: 'flex',
     justifyContent: 'space-between',
