@@ -6,7 +6,6 @@
 
 /* Hero section */
 .about-hero {
-  background: url("/images/services/index.webp") center/cover no-repeat;
   height: 300px;
   position: relative;
   display: flex;
