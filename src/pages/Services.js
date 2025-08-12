@@ -46,7 +46,8 @@ const SERVICES = [
     title: "Exhaust Service",
     category: "Engine & Transmission",
     duration: "1–2 hrs",
-    desc: "Mufflers, catalytic converters, O2 sensors, leak checks, and hangers."
+    desc: "Mufflers, catalytic converters, O2 sensors, leak checks, and hangers.",
+    img: "/images/services/exhaust-service.jpg"
   },
   {
     id: "radiator-service",
@@ -240,3 +241,4 @@ function Services() {
 }
 
 export default Services;
+
