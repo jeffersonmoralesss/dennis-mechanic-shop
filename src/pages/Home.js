@@ -3,43 +3,41 @@ import React from 'react';
 import '../styles/home.css'; // make sure this file exists (from earlier step)
 
 function Home() {
-  const jobs = [
-    {
-      title: 'Brake Repair - Honda Civic',
-      image: '/images/brake.jpg',
-      alt: 'Mechanic replacing brake pads on a Honda Civic',
-    },
-    {
-      title: 'Oil Change - Toyota Corolla',
-      image: '/images/oil.jpg',
-      alt: 'Fresh oil being poured into a Toyota Corolla engine',
-    },
-    // add more jobs here as needed
-  ];
-
-  return (
-    <main>
-      {/* Hero banner (full-width, under your header) */}
-      <section className="hero" aria-label="Dennis General Mechanic banner">
-        <picture>
-          <source srcSet="/images/mechanicshopcoverimage.webp" type="image/webp" />
-          {/* If you add a jpg/png fallback later, uncomment the line below and update the filename */}
-          {/* <source srcSet="/images/mechanicshopcoverimage.jpg" type="image/jpeg" /> */}
-          <img
-            src="/images/mechanicshopcoverimage.webp"
-            alt="Dennis General Mechanic — dependable auto service"
-            className="hero__img"
-            loading="eager"
-            fetchpriority="high"
-          />
-        </picture>
-
-        {/* Overlay text (optional: remove this block if you want only the image) */}
-        <div className="hero__overlay">
-          <h1 className="hero__title">Dennis General Mechanic</h1>
-          <p className="hero__subtitle">Honest work. Reliable results.</p>
-        </div>
-      </section>
+    const bannerImage = "public/images/banner.png"
+    ; // <--- file path here
+  
+    const jobs = [
+      {
+        title: "Brake Repair - Honda Civic",
+        image: "/images/brake.jpg",
+        alt: "Mechanic replacing brake pads on a Honda Civic",
+      },
+      {
+        title: "Oil Change - Toyota Corolla",
+        image: "/images/oil.jpg",
+        alt: "Fresh oil being poured into a Toyota Corolla engine",
+      },
+    ];
+  
+    return (
+      <main>
+        <section className="hero" aria-label="Dennis General Mechanic banner">
+          <picture>
+            <source srcSet={bannerImage} type="image/webp" />
+            <img
+              src={bannerImage}
+              alt="Dennis General Mechanic — dependable auto service"
+              className="hero__img"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
+  
+          <div className="hero__overlay">
+            <h1 className="hero__title">Dennis General Mechanic</h1>
+            <p className="hero__subtitle">Honest work. Reliable results.</p>
+          </div>
+        </section>
 
       {/* Book Online (your existing third-party link) */}
       <section className="cta" aria-label="Book online">

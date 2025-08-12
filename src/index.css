@@ -1,16 +1,95 @@
-body {
-  margin: 0;
-  background-color: white;
-  color: black;
-  font-family: Arial, sans-serif;
+/* =========================
+   Global Base / index.css
+   ========================= */
+
+/* 1) Box sizing + margin reset */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+/* 2) Theme variables */
+:root {
+  --brand-yellow: #FFD400;
+  --ink: #111111;
+  --muted: #666666;
+  --border: #e6e6e6;
+  --nav-h: 64px; /* adjust to your header height if sticky/fixed */
 }
 
-nav a {
-  font-weight: bold;
-  text-decoration: none;
+/* 3) Page background + typography (forces white site background) */
+html, body, #root {
+  min-height: 100%;
+  background: #ffffff !important;
+  color: var(--ink);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h2 {
-  text-align: center;
-  margin-top: 2rem;
+/* 4) Main content padding to avoid nav overlap (if header is sticky/fixed) */
+main { padding-top: var(--nav-h); }
+
+/* 5) Media + links */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-yellow); outline-offset: 2px; }
+
+/* 6) Form + button basics */
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+button { cursor: pointer; }
+
+/* 7) Containers and sections */
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+section { padding-block: clamp(2rem, 5vw, 4rem); }
+.section__title { margin: 0 0 1rem 0; font-weight: 800; }
+
+/* 8) Utility classes */
+.hidden { display: none !important; }
+.text-center { text-align: center; }
+.muted { color: var(--muted); }
+.border { border: 1px solid var(--border); }
+
+/* 9) Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .8rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+.btn--primary {
+  background: #000000;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+}
+.btn--primary:hover { transform: translateY(-1px); }
+
+/* 10) Nav (optional; safe defaults if you use a sticky header) */
+header.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #000;           /* your yellow/black theme header */
+  color: #fff;
+  border-bottom: 2px solid var(--brand-yellow);
+}
+
+/* 11) Prevent unexpected global dark backgrounds */
+*::selection { background: var(--brand-yellow); color: #000; }
+/* If any component had a rogue global rule setting background:black, this line helps override */
+body *, body *::before, body *::after {
+  background-color: transparent;
 }

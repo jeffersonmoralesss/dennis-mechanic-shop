@@ -1,38 +1,70 @@
-:root {
-    --bg: #000;
-    --fg: #ffd700;       /* brand yellow */
-    --fg-inverse: #000;
-    --muted: #c7a800;
-    --card-bg: #111;
-    --border: #2b2b2b;
+/* ====== HERO ====== */
+.hero {
+    position: relative;
+    min-height: clamp(360px, 60vh, 720px);
+    overflow: hidden;                 /* clips anything that spills */
   }
   
-  body { background: var(--bg); color: var(--fg); margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-  .container { width: min(1100px, 92vw); margin-inline: auto; }
+  /* If you previously had a background-image on .hero, REMOVE it. 
+     We are using an <img> inside <picture> instead. */
   
-  .section__title { margin: 2rem 0 1rem; text-align: center; font-size: clamp(1.5rem, 2.5vw, 2rem); }
+  /* Make the <picture>/<img> fill the hero at the lowest layer */
+  .hero picture,
+  .hero picture > img,
+  .hero__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;                      /* image stays underneath */
+  }
   
-  /* Hero */
-  .hero { position: relative; overflow: hidden; }
-  .hero__img { width: 100%; height: auto; max-height: 520px; object-fit: cover; display: block; }
-  .hero__overlay { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 1rem; background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%); }
-  .hero__title { margin: 0; font-size: clamp(1.75rem, 3vw, 3rem); letter-spacing: .5px; }
-  .hero__subtitle { margin-top: .5rem; color: var(--muted); }
+  /* Text overlay sits above the image with a soft gradient */
+  .hero__overlay {
+    position: relative;
+    z-index: 2;
+    min-height: inherit;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.55));
+    text-align: left;
+  }
   
-  /* CTA (your existing Book Online) */
-  .cta { background: var(--fg); color: var(--fg-inverse); padding: 1.5rem 0; border-top: 2px solid var(--muted); border-bottom: 2px solid var(--muted); }
-  .cta__wrap { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; }
-  .cta__title { margin: 0; font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 700; }
-  .btn { display: inline-block; text-decoration: none; border-radius: 10px; padding: .85rem 1.25rem; font-weight: 700; border: 2px solid transparent; transition: transform .12s ease, box-shadow .12s ease, background .2s ease, color .2s ease; }
-  .btn--primary { background: var(--bg); color: var(--fg); box-shadow: 0 6px 18px rgba(0,0,0,.35); }
-  .btn--primary:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.5); }
+  .hero__title {
+    color: var(--brand-yellow);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 3.5vw, 3rem);
+    line-height: 1.1;
+    text-shadow: 0 2px 6px rgba(0,0,0,.6);
+    margin: 0 0 .5rem 0;
+  }
   
-  /* Weekly Bulletin */
-  .bulletin { padding: 2rem 0 3rem; }
-  .grid { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease; }
-  .card:hover { transform: translateY(-2px); border-color: var(--muted); box-shadow: 0 10px 24px rgba(0,0,0,.45); }
-  .card__img { width: 100%; height: 170px; object-fit: cover; display: block; }
-  .card__body { padding: .9rem 1rem 1.1rem; }
-  .card__title { margin: 0; font-weight: 600; letter-spacing: .2px; }
+  .hero__subtitle {
+    color: #f5f5f5;
+    margin: 0;
+  }
+  
+  /* ====== NAV OVERLAP GUARD (if header is fixed/sticky) ====== */
+  main { padding-top: var(--nav-h, 64px); }  /* adjust to your header height */
+  
+  /* ====== CTA BAND ====== */
+  .cta {
+    background: var(--brand-yellow);
+    padding: 2rem 1rem;
+  }
+  .container.cta__wrap {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .btn.btn--primary {
+    background: #000; color: #fff;
+    padding: .9rem 1.4rem; border-radius: 12px; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(0,0,0,.2);
+  }
+  .btn.btn--primary:hover { transform: translateY(-1px); }
+  
+  /* ====== SECTION RHYTHM ====== */
+  section { padding-block: clamp(2rem, 5vw, 4rem); }
   
