@@ -2,7 +2,6 @@
 import { useMemo, useState } from "react";
 import "./services.css";
 
-// === Services data (no prices) ===
 const SERVICES = [
   // Diagnostics & Electrical
   {
@@ -11,7 +10,7 @@ const SERVICES = [
     category: "Diagnostics & Electrical",
     duration: "60–90 min",
     desc: "OBD-II scan, fault code analysis, and live data checks to pinpoint issues fast.",
-    img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1588514727390-91fd5ebaefaa?q=80&w=1600&auto=format&fit=crop"
   },
   {
     id: "electrical-service",
@@ -19,7 +18,7 @@ const SERVICES = [
     category: "Diagnostics & Electrical",
     duration: "1–2 hrs",
     desc: "Battery, alternator, starter testing, wiring/relay diagnostics, and repairs.",
-    img: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1607861407390-0b71b9b2ce46?q=80&w=1600&auto=format&fit=crop"
   },
 
   // Engine, Transmission, Cooling & Exhaust
@@ -29,7 +28,7 @@ const SERVICES = [
     category: "Engine & Transmission",
     duration: "2–3 hrs",
     desc: "Tune-ups, misfire diagnosis, sensors, belts/hoses, and performance checks.",
-    img: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?q=80&w=1600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1600&auto=format&fit=crop"
   },
   {
     id: "transmission-service",
@@ -45,7 +44,7 @@ const SERVICES = [
     category: "Engine & Transmission",
     duration: "1–2 hrs",
     desc: "Mufflers, catalytic converters, O2 sensors, leak checks, and hangers.",
-    img: "https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=1600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1518306727298-4c228dd52405?q=80&w=1600&auto=format&fit=crop"
   },
   {
     id: "radiator-service",
@@ -53,7 +52,7 @@ const SERVICES = [
     category: "Engine & Transmission",
     duration: "1–2 hrs",
     desc: "Cooling system flush, leak test, pressure test, and thermostat checks.",
-    img: "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1604668915840-580c30026e9f?q=80&w=1600&auto=format&fit=crop"
   },
 
   // Maintenance & Inspection
@@ -63,7 +62,7 @@ const SERVICES = [
     category: "Maintenance & Inspection",
     duration: "45–60 min",
     desc: "Premium oil, OEM filter, multi-point inspection, and fluid top-off.",
-    img: "https://images.unsplash.com/photo-1619784698895-3153b7c0ac08?q=80&w=1600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1612198185722-6c8464b7e3aa?q=80&w=1600&auto=format&fit=crop"
   },
   {
     id: "maintenance-service",
@@ -71,7 +70,7 @@ const SERVICES = [
     category: "Maintenance & Inspection",
     duration: "60–90 min",
     desc: "Factory-scheduled service: filters, fluids, belts, and general health checks.",
-    img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600&auto=format&fit=crop"
   },
   {
     id: "state-inspection",
@@ -79,7 +78,7 @@ const SERVICES = [
     category: "Maintenance & Inspection",
     duration: "30–60 min",
     desc: "Complete safety/emissions inspection to keep you legal and safe.",
-    img: "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1517519014922-8fc06f3cbf2a?q=80&w=1600&auto=format&fit=crop"
   },
   {
     id: "wipers",
@@ -87,7 +86,7 @@ const SERVICES = [
     category: "Maintenance & Inspection",
     duration: "15–30 min",
     desc: "Blade replacement and streak-free operation check for clear visibility.",
-    img: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=1600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop"
   },
 
   // Brakes & Suspension
@@ -157,7 +156,7 @@ const SERVICES = [
     category: "Glass & Body",
     duration: "45–90 min",
     desc: "Chip/crack repair or replacement coordination for safe, clear glass.",
-    img: "https://images.unsplash.com/photo-1544794570-6f5a1b290a5e?q=80&w=1600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1621570166587-53b58d8f3a1e?q=80&w=1600&auto=format&fit=crop"
   },
   {
     id: "towing-service",
@@ -165,7 +164,7 @@ const SERVICES = [
     category: "Towing",
     duration: "ETA varies",
     desc: "Local towing and roadside assistance—call for availability and rates.",
-    img: "https://images.unsplash.com/photo-1589261431593-4b3b1a4f3f0a?q=80&w=1600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1603190287605-e6ade32fa852?q=80&w=1600&auto=format&fit=crop"
   }
 ];
 
@@ -218,7 +217,7 @@ function Services() {
       <section className="grid">
         {filtered.map(svc => (
           <article className="card" key={svc.id}>
-            <div className="card-img" style={{ backgroundImage: `url(${svc.img})` }} />
+            <img className="card-img" src={svc.img} alt={svc.title} />
             <div className="card-body">
               <h3>{svc.title}</h3>
               <p className="desc">{svc.desc}</p>
@@ -246,4 +245,5 @@ function Services() {
 }
 
 export default Services;
+
 
