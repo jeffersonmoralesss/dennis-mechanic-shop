@@ -87,19 +87,9 @@
   flex-direction: column;
   gap: .65rem;
 }
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-}
 .card h3 {
   margin: 0;
   font-size: 1.1rem;
-}
-.price {
-  font-weight: 700;
-  color: #111827;
 }
 .desc {
   margin: 0;
@@ -128,7 +118,9 @@
   padding: .65rem .9rem;
   font-weight: 600;
   cursor: pointer;
+  text-align: center;
   transition: transform .05s ease, box-shadow .2s ease, background .2s ease;
+  display: inline-block;
 }
 .reserve-btn:hover { background: #1d4ed8; }
 .reserve-btn:active { transform: translateY(1px); }
@@ -140,71 +132,3 @@
   color: #6b7280;
   padding: 2rem 0;
 }
-
-/* Modal */
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(17,24,39,.6);
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-  z-index: 50;
-}
-.modal {
-  width: 100%;
-  max-width: 680px;
-  background: #fff;
-  border-radius: 1rem;
-  padding: 1.25rem;
-  position: relative;
-}
-.close {
-  position: absolute;
-  right: .75rem;
-  top: .5rem;
-  background: transparent;
-  border: 0;
-  font-size: 1.5rem;
-  line-height: 1;
-  cursor: pointer;
-  color: #6b7280;
-}
-.modal-form {
-  display: flex;
-  flex-direction: column;
-  gap: .8rem;
-}
-.modal-form .row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: .8rem;
-}
-@media (min-width: 700px) {
-  .modal-form .row { grid-template-columns: repeat(3, 1fr); }
-  .modal-form .row:first-of-type { grid-template-columns: repeat(2, 1fr); }
-}
-.modal-form label {
-  display: flex;
-  flex-direction: column;
-  gap: .35rem;
-  font-size: .925rem;
-  color: #374151;
-}
-.modal-form input,
-.modal-form textarea {
-  padding: .65rem .75rem;
-  border-radius: .6rem;
-  border: 1px solid #e5e7eb;
-  outline: none;
-  transition: border-color .2s, box-shadow .2s;
-  font-size: .95rem;
-}
-.modal-form input:focus,
-.modal-form textarea:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 4px rgba(37,99,235,.12);
-}
-
-.ok   { color: #065f46; background: #ecfdf5; padding:.4rem .6rem; border-radius:.5rem; }
-.error{ color: #7f1d1d; background: #fef2f2; padding:.4rem .6rem; border-radius:.5rem; }
