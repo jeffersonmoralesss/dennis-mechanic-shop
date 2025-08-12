@@ -4,7 +4,7 @@ import "../styles/home.css";
 
 function Home() {
   // Use the image from /public/images
-  const bannerImage = "/images/bannerimage.jpg"; // update extension if it's .png/.webp
+  const bannerImage = "/images/imagebanner.jpg"; // update extension if it's .png/.webp
 
   const jobs = [
     {
