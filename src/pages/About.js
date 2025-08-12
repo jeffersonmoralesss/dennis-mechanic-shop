@@ -5,7 +5,12 @@ function About() {
   return (
     <div className="about-page">
       {/* Hero Section */}
-      <section className="about-hero">
+      <section
+        className="about-hero"
+        style={{
+          background: "url('/images/about/AboutUS.webp') center/cover no-repeat"
+        }}
+      >
         <div className="overlay">
           <h1>About Us</h1>
           <p>Your trusted partner in automotive care</p>
@@ -23,7 +28,7 @@ function About() {
             experience with modern diagnostic tools to deliver trusted
             automotive care.
           </p>
-          <p>
+        <p>
             From brake repairs and oil changes to complete engine diagnostics,
             our certified team is dedicated to getting the job done right the
             first time. We value honesty, transparency, and quality service —
@@ -52,10 +57,12 @@ function About() {
           </div>
         </div>
 
+        {/* Image next to text */}
         <div className="about-image">
           <img
-            src="/images/about/garage-team.jpg"
-            alt="Dennis General Mechanic Shop Team"
+            src="/images/about/brophoto.webp"
+            alt="Our team at Dennis General Mechanic Shop"
+            loading="lazy"
           />
         </div>
       </section>
