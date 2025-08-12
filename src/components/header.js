@@ -1,10 +1,15 @@
+// src/components/header.js
 import React from 'react';
 
 function Header() {
   return (
     <header style={styles.header}>
       <div style={styles.left}>
-        <span style={styles.logo}>Dennis General Mechanic</span>
+        <img
+          src={`${process.env.PUBLIC_URL}/images/services/logo.png`}
+          alt="Dennis General Mechanic Logo"
+          style={styles.logoImg}
+        />
       </div>
       <div style={styles.right}>
         <a href="tel:2407647004" style={styles.icon}>
@@ -26,7 +31,7 @@ function Header() {
 const styles = {
   header: {
     backgroundColor: 'yellow',
-    color: 'yellow',
+    color: 'yellow', // child elements override as needed
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -34,11 +39,21 @@ const styles = {
     borderBottom: '2px solid yellow',
   },
   left: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  // (kept for backward compatibility, not used now)
+  logo: {
+    color: 'black',
     fontSize: '1.5rem',
     fontWeight: 'bold',
   },
-  logo: {
-    color: 'black',
+  // New: image styling for the logo
+  logoImg: {
+    height: 50,      // adjust size as needed
+    width: 'auto',
+    objectFit: 'contain',
+    display: 'block',
   },
   right: {
     display: 'flex',
@@ -49,6 +64,8 @@ const styles = {
     color: 'black',
     textDecoration: 'none',
     fontSize: '1rem',
+    display: 'inline-flex',
+    alignItems: 'center',
   },
   label: {
     marginLeft: '0.25rem',
