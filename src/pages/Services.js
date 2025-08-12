@@ -21,7 +21,7 @@ const SERVICES = [
     category: "Diagnostics & Electrical",
     duration: "1–2 hrs",
     desc: "Battery, alternator, starter testing, wiring/relay diagnostics, and repairs.",
-    img: "/images/services/electrical-service.jpg"
+    img: "/images/services/electrical-service.jpeg"
   },
 
   // Engine & Transmission
@@ -39,7 +39,7 @@ const SERVICES = [
     category: "Engine & Transmission",
     duration: "2–3 hrs",
     desc: "Fluid exchange, filter, pan gasket (as applicable), and shifting diagnostics.",
-    img: "/images/services/transmission-service.jpg"
+    img: "/images/services/transmission-service.jpeg"
   },
   {
     id: "exhaust-service",
