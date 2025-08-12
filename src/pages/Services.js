@@ -66,7 +66,7 @@ const SERVICES = [
     category: "Maintenance & Inspection",
     duration: "45–60 min",
     desc: "Premium oil, OEM filter, multi-point inspection, and fluid top-off.",
-    img: "/images/services/oil-change.jpg"
+    img: "/images/services/oil-change.avif"
   },
   {
     id: "maintenance-service",
