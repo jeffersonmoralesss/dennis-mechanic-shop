@@ -13,6 +13,11 @@ html, body { margin: 0; padding: 0; }
   --muted: #666666;
   --border: #e6e6e6;
   --nav-h: 64px; /* adjust to your header height if sticky/fixed */
+
+  /* Global font stack */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, "Noto Sans",
+               "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /* 3) Page background + typography (forces white site background) */
@@ -20,11 +25,34 @@ html, body, #root {
   min-height: 100%;
   background: #ffffff !important;
   color: var(--ink);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-sans);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Headings to match Services page vibe */
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin: 0 0 .25rem;
+}
+h2 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+  margin: .5rem 0;
+}
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  font-size: 1.1rem;
+  margin: .5rem 0;
+}
+
+/* Paragraph / small text */
+p { color: var(--muted); }
 
 /* 4) Main content padding to avoid nav overlap (if header is sticky/fixed) */
 main { padding-top: var(--nav-h); }
@@ -39,7 +67,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-yellow); 
 
 /* 6) Form + button basics */
 button, input, select, textarea {
-  font: inherit;
+  font-family: var(--font-sans);
+  font-size: 1rem;
   color: inherit;
 }
 button { cursor: pointer; }
@@ -69,6 +98,7 @@ section { padding-block: clamp(2rem, 5vw, 4rem); }
   border-radius: 12px;
   font-weight: 700;
   transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  font-family: var(--font-sans);
 }
 .btn--primary {
   background: #000000;
