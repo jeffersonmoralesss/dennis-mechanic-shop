@@ -1,59 +1,173 @@
 /* ====== HERO ====== */
 .hero {
-    position: relative;
-    min-height: clamp(360px, 60vh, 720px);
-    overflow: hidden;
-    background: none !important;
-    margin-top: 0; /* ensure no push-down */
-  }
-  
-  /* Remove top padding from hero inside main */
-  main > .hero {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
-  
-  /* If the main element adds global padding for nav overlap, turn it off just for hero */
-  main {
-    padding-top: 0; /* reset here if nav is not overlapping */
-  }
-  
-  
-  /* Full-bleed hero image */
-  .hero__img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    image-rendering: -webkit-optimize-contrast; /* helps in some browsers */
-  }
-  
-  
-  /* Kill overlay/text */
-  .hero__overlay { display: none !important; }
-  .hero::before,
-  .hero::after { content: none !important; }
-  
-  
-  /* ====== CTA BAND ====== */
-  .cta {
-    background: var(--brand-yellow);
-    padding: 2rem 1rem;
-  }
-  .container.cta__wrap {
-    max-width: 1100px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  }
-  .btn.btn--primary {
-    background: #000; color: #fff;
-    padding: .9rem 1.4rem; border-radius: 12px; font-weight: 700;
-    box-shadow: 0 6px 18px rgba(0,0,0,.2);
-  }
-  .btn.btn--primary:hover { transform: translateY(-1px); }
-  
-  /* ====== SECTION RHYTHM ====== */
-  section { padding-block: clamp(2rem, 5vw, 4rem); }
-  
+  position: relative;
+  min-height: clamp(380px, 58vh, 680px);
+  overflow: hidden;
+  background: none !important;
+}
+.hero__img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
+}
+.hero__shade {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.25) 40%, rgba(0,0,0,.55) 85%),
+    linear-gradient(180deg, transparent 60%, rgba(255,255,255,1) 100%);
+}
+.hero__content {
+  position: relative; z-index: 1;
+  padding-top: clamp(2rem, 6vw, 4rem);
+  display: grid; gap: 1rem;
+  color: #fff;
+}
+.hero__content h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin: 0; }
+.hero__content p { font-size: clamp(1rem, 2vw, 1.2rem); margin: 0; opacity: .95; }
+.hero__cta { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+.btn--ghost {
+  background: #ffffff;
+  color: #111;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  font-weight: 700;
+  padding: .85rem 1.2rem;
+}
+
+/* ====== FEATURES (overlapping card row) ====== */
+.features { margin-top: -2.25rem; }
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .9rem;
+  background: #fff;
+  border: 1px solid var(--border, #e6e6e6);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  padding: 1rem;
+}
+.feature {
+  display: flex; gap: .75rem; align-items: flex-start;
+  padding: .6rem .4rem;
+}
+.f-emoji { font-size: 1.6rem; }
+
+/* ====== QUICK LINKS ====== */
+.quick { padding-top: 1rem; }
+.quick__pills {
+  display: flex; flex-wrap: wrap; gap: .6rem;
+  list-style: none; margin: 0; padding: 0;
+}
+.pill {
+  display: inline-flex; align-items: center;
+  padding: .55rem .9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border, #e6e6e6);
+  background: #fff;
+  font-weight: 700;
+  transition: transform .12s ease, background .12s ease;
+}
+.pill:hover { transform: translateY(-1px); background: #f9fafb; }
+
+/* ====== GRID & CARDS (This Week’s Work) ====== */
+.grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card {
+  border: 1px solid var(--border, #e6e6e6);
+  border-radius: 12px; overflow: hidden; background: #fff;
+  box-shadow: 0 8px 18px rgba(0,0,0,.06);
+}
+.card__img { width: 100%; height: 200px; object-fit: cover; }
+.card__body { padding: .8rem 1rem; }
+.card__title { margin: 0; font-weight: 700; }
+
+/* ====== TESTIMONIALS ====== */
+.testimonials {
+  position: relative;
+  padding: clamp(2rem, 5vw, 3.5rem) 0;
+  color: #fff;
+}
+.testimonials__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.75));
+  z-index: 0;
+}
+.testimonials .container,
+.testimonials__header,
+.t-track { position: relative; z-index: 1; }
+
+.testimonials__header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; margin-bottom: 1rem;
+}
+.testimonials__actions { display: flex; gap: .5rem; }
+.t-nav {
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 10px;
+  padding: .4rem .7rem;
+  font-size: 1.25rem; line-height: 1;
+  transition: transform .15s ease, background .15s ease;
+}
+.t-nav:hover { background: rgba(255,255,255,.18); transform: translateY(-1px); }
+
+.t-track {
+  display: flex; gap: 1rem;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: .5rem .25rem 0;
+}
+.t-track::-webkit-scrollbar { height: 10px; }
+.t-track::-webkit-scrollbar-track { background: rgba(255,255,255,.08); border-radius: 999px; }
+.t-track::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); border-radius: 999px; }
+
+.t-card {
+  scroll-snap-align: start;
+  flex: 0 0 min(540px, 88vw);
+  background: rgba(17, 24, 39, .88);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+  padding: 1.1rem 1.25rem;
+}
+.t-head {
+  display: flex; align-items: center; gap: .8rem;
+  margin-bottom: .6rem;
+}
+.t-avatar {
+  width: 42px; height: 42px; border-radius: 999px;
+  background: #111; border: 2px solid var(--brand-yellow, #FFD400);
+  display: grid; place-items: center; font-weight: 800;
+}
+.t-name { font-size: 1.05rem; }
+.t-sub { color: rgba(255,255,255,.8); font-size: .92rem; }
+.dot { margin: 0 .35rem; color: rgba(255,255,255,.5); }
+.t-text { color: rgba(255,255,255,.95); line-height: 1.6; }
+
+/* ====== Responsive ====== */
+@media (max-width: 900px) {
+  .features__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 540px) {
+  .features__grid { grid-template-columns: 1fr; }
+  .hero__cta { flex-direction: column; align-items: flex-start; }
+}
+
+/* ====== HOME COMPACT TWEAKS (tighten spacing & make hero touch nav) ====== */
+header.nav + main > .hero,
+main > .hero { margin: 0 !important; padding: 0 !important; }
+main > .hero { margin-top: -1px; } /* hide any thin gap */
+main > section { padding-block: clamp(1rem, 3vw, 2rem); }
+.features { margin-top: -3rem; }
+@media (max-width: 900px){ .features { margin-top: -1.5rem; } }
+.quick { padding-top: .5rem; }
+.grid { gap: .85rem; }
+.card__img { height: 180px; }
+.section__title { margin: 0 0 .75rem; }
+.testimonials { padding: clamp(1.25rem, 3.5vw, 2.25rem) 0; }
+.t-card { padding: .95rem 1.1rem; }
