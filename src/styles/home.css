@@ -14,9 +14,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
-    z-index: 0;
+    image-rendering: -webkit-optimize-contrast; /* helps in some browsers */
   }
+  
   
   /* Kill overlay/text */
   .hero__overlay { display: none !important; }

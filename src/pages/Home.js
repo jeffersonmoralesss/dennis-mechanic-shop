@@ -4,7 +4,18 @@ import "../styles/home.css";
 
 function Home() {
   // Use the image from /public/images
-  const bannerImage = "/images/services/bannerimage.avif"; // update extension if it's .png/.webp
+  const bannerImage = "/images/services/imagebanner.webp"; // update extension if it's .png/.webp
+  
+  <section className="hero" aria-label="Dennis General Mechanic banner">
+  <img
+    src={bannerImage}
+    alt="Dennis General Mechanic — dependable auto service"
+    className="hero__img"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  />
+</section>
 
   const jobs = [
     {
