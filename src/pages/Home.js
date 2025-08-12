@@ -3,7 +3,19 @@ import React from 'react';
 import '../styles/home.css'; // make sure this file exists (from earlier step)
 
 function Home() {
-    const bannerImage = "public/images/banner.png"; // <--- file path here
+    const bannerImage = "/images/dennis-banner.png"; // or .jpg
+
+    <section className="hero" aria-label="Dennis General Mechanic banner">
+      <img
+        src={bannerImage}
+        alt="Dennis General Mechanic — dependable auto service"
+        className="hero__img"
+        loading="eager"
+        fetchpriority="high"
+      />
+      ...
+    </section>
+    
   
     const jobs = [
       {
