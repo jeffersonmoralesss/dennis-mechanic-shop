@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/home.css'; // make sure this file exists (from earlier step)
 
 function Home() {
-    const bannerImage = "/images/dennis-banner.png"; // or .jpg
+    const bannerImage = "/images/banner.png"; // or .jpg
 
     <section className="hero" aria-label="Dennis General Mechanic banner">
       <img
