@@ -41,6 +41,21 @@ const BASE = [
   { id: "towing-service",           img: "/images/services/towing-service.jpg" },
 ];
 
+// Function to safely build the booking URL
+function buildBookingUrl() {
+  const url = new URL("https://vipshopmanagement.com/appointment.php");
+  url.search = new URLSearchParams({
+    SubID: "RZZcwDvHbo6Kg5sA",
+    company: "DENNIS GENERAL MECHANIC",
+    address: "4720 BALTIMORE AVE HYATTSVILLE, MD 20781",
+    "shop-phone": "(240) 764-7004",
+    "shop-email": "none",
+    web: "https://dennismechanicshop.com", // ✅ Use your real site
+    location: "United States",
+  }).toString();
+  return url.toString();
+}
+
 function Services() {
   const { t } = useI18n();
 
@@ -78,9 +93,6 @@ function Services() {
       return matchesCat && matchesQuery;
     });
   }, [query, activeCat, SERVICES, t]);
-
-  const bookingUrl =
-    "https://vipshopmanagement.com/appointment.php?SubID=RZZcwDvHbo6Kg5sA&company=DENNIS%20GENERAL%20MECHANIC&address=4720%20BALTIMORE%20AVE%20%20%20HYATTSVILLE%20,%20MD%20%2020781&shop-phone=(240)%20764-7004&shop-email=none&web=https://&location=United%20States";
 
   return (
     <div className="services-page">
@@ -125,7 +137,7 @@ function Services() {
                 {svc.duration && <span className="chip">{svc.duration}</span>}
               </div>
               <a
-                href={bookingUrl}
+                href={buildBookingUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="reserve-btn"
