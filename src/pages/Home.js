@@ -3,36 +3,25 @@ import React from "react";
 import "../styles/home.css";
 
 function Home() {
-  // Use the image from /public/images
-  const bannerImage = "/images/services/imagebanner.webp"; // update extension if it's .png/.webp
-  
-  <section className="hero" aria-label="Dennis General Mechanic banner">
-  <img
-    src={bannerImage}
-    alt="Dennis General Mechanic — dependable auto service"
-    className="hero__img"
-    loading="eager"
-    fetchpriority="high"
-    decoding="async"
-  />
-</section>
+  // Ensure this file exists in public/images as the correct name/extension
+  const bannerImage = "/images/banner.jpg"; // or .png/.webp
 
   const jobs = [
     {
       title: "Brake Repair - Honda Civic",
-      image: "/images/services/brake-service.jpg",
+      image: "/images/brake.jpg",
       alt: "Mechanic replacing brake pads on a Honda Civic",
     },
     {
       title: "Oil Change - Toyota Corolla",
-      image: "/images/services/oil-change.avif",
+      image: "/images/oil.jpg",
       alt: "Fresh oil being poured into a Toyota Corolla engine",
     },
   ];
 
   return (
     <main>
-      {/* Clean hero: image only, no overlay, no text */}
+      {/* Hero (banner image only) */}
       <section className="hero" aria-label="Dennis General Mechanic banner">
         <img
           src={bannerImage}
@@ -65,6 +54,8 @@ function Home() {
           <h2 id="bulletin-heading" className="section__title">
             This Week’s Work
           </h2>
+        </div>
+        <div className="container">
           <ul className="grid" role="list">
             {jobs.map((job, index) => (
               <li key={index} className="card">
@@ -82,6 +73,20 @@ function Home() {
           </ul>
         </div>
       </section>
+
+      {/* Site Footer */}
+      <footer className="site-footer" role="contentinfo">
+        <div className="container footer-links">
+          <p>© 2007-{new Date().getFullYear()} Dennis General Mechanic. All Rights Reserved.</p>
+          <nav aria-label="Legal and informational links">
+            <a href="/terms-of-use">Terms of Use</a> |{" "}
+            <a href="/privacy-policy">Privacy Policy</a> |{" "}
+            <a href="/your-privacy-choices">Your Privacy Choices</a> |{" "}
+            <a href="/accessibility">Accessibility</a> |{" "}
+            <a href="/sitemap">Sitemap</a>
+          </nav>
+        </div>
+      </footer>
     </main>
   );
 }

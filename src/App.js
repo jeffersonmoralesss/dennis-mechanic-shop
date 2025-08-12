@@ -8,6 +8,13 @@ import Reservation from './pages/Reservation';
 import About from './pages/About';
 import Commercial from './pages/Commercial';
 
+// NEW legal pages
+import TermsOfUse from './pages/TermsOfUse';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import YourPrivacyChoices from './pages/YourPrivacyChoices';
+import Accessibility from './pages/Accessibility';
+import Sitemap from './pages/Sitemap';
+
 function App() {
   return (
     <Router>
@@ -21,11 +28,19 @@ function App() {
       </nav>
 
       <Routes>
+        {/* Existing routes */}
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/about" element={<About />} />
         <Route path="/commercial" element={<Commercial />} />
+
+        {/* New legal/info routes */}
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/your-privacy-choices" element={<YourPrivacyChoices />} />
+        <Route path="/accessibility" element={<Accessibility />} />
+        <Route path="/sitemap" element={<Sitemap />} />
       </Routes>
     </Router>
   );
