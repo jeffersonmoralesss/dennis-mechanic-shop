@@ -2,7 +2,6 @@
 import { useMemo, useState } from "react";
 import "./services.css";
 
-// Fallback image for services that don't have one yet
 const DEFAULT_IMG = "/mechanicshopcoverimage.webp";
 
 const SERVICES = [
@@ -54,7 +53,8 @@ const SERVICES = [
     title: "Radiator Service",
     category: "Engine & Transmission",
     duration: "1–2 hrs",
-    desc: "Cooling system flush, leak test, pressure test, and thermostat checks."
+    desc: "Cooling system flush, leak test, pressure test, and thermostat checks.",
+    img: "/images/services/radiator-service.jpg"
   },
 
   // Maintenance & Inspection
@@ -63,7 +63,8 @@ const SERVICES = [
     title: "Lube, Oil & Filter Change",
     category: "Maintenance & Inspection",
     duration: "45–60 min",
-    desc: "Premium oil, OEM filter, multi-point inspection, and fluid top-off."
+    desc: "Premium oil, OEM filter, multi-point inspection, and fluid top-off.",
+    img: "/images/services/oil-change.avif"
   },
   {
     id: "maintenance-service",
@@ -241,4 +242,5 @@ function Services() {
 }
 
 export default Services;
+
 
