@@ -4,8 +4,20 @@
     min-height: clamp(360px, 60vh, 720px);
     overflow: hidden;
     background: none !important;
-    margin-top: calc(-1 * var(--nav-h, 64px)); /* pull hero up under header */
+    margin-top: 0; /* ensure no push-down */
   }
+  
+  /* Remove top padding from hero inside main */
+  main > .hero {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  /* If the main element adds global padding for nav overlap, turn it off just for hero */
+  main {
+    padding-top: 0; /* reset here if nav is not overlapping */
+  }
+  
   
   /* Full-bleed hero image */
   .hero__img {
@@ -25,14 +37,6 @@
   .hero::before,
   .hero::after { content: none !important; }
   
-  /* ====== NAV OVERLAP GUARD ====== */
-  /* Keep top padding for the rest of the page, but not the hero */
-  main {
-    padding-top: var(--nav-h, 64px);
-  }
-  main > .hero {
-    padding-top: 0;
-  }
   
   /* ====== CTA BAND ====== */
   .cta {

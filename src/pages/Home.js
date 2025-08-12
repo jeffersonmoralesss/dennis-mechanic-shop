@@ -25,7 +25,7 @@ function Home() {
     },
     {
       title: "Oil Change - Toyota Corolla",
-      image: "/images/services/oil-change.jpg",
+      image: "/images/services/oil-change.avif",
       alt: "Fresh oil being poured into a Toyota Corolla engine",
     },
   ];
