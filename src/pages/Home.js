@@ -4,17 +4,17 @@ import "../styles/home.css";
 
 function Home() {
   // Ensure this file exists in public/images as the correct name/extension
-  const bannerImage = "/images/banner.jpg"; // or .png/.webp
+  const bannerImage = "/images/services/imagebanner.webp"; // or .png/.webp
 
   const jobs = [
     {
       title: "Brake Repair - Honda Civic",
-      image: "/images/brake.jpg",
+      image: "/images/brake-service.jpg",
       alt: "Mechanic replacing brake pads on a Honda Civic",
     },
     {
       title: "Oil Change - Toyota Corolla",
-      image: "/images/oil.jpg",
+      image: "/images/oil-change.avif",
       alt: "Fresh oil being poured into a Toyota Corolla engine",
     },
   ];
