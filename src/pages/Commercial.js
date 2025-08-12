@@ -1,8 +1,11 @@
 // src/pages/Commercial.js
 import React from "react";
 import "./commercial.css";
+import { useI18n } from "../i18n";
 
 function Commercial() {
+  const { t } = useI18n();
+
   const bookingUrl =
     "https://vipshopmanagement.com/schedule-appointment.php?SubID=RZZcwDvHbo6Kg5sA";
 
@@ -18,17 +21,19 @@ function Commercial() {
         }}
       >
         <div className="c-hero__overlay">
-          <h1>Commercial Services & Fleet Support</h1>
-          <p>
-            Keep your business moving with dependable, fast turnaround service
-            in Hyattsville, MD.
-          </p>
+          <h1>{t("commercial.heroH")}</h1>
+          <p>{t("commercial.heroP")}</p>
           <div className="c-hero__cta">
-            <a className="btn btn--primary" href={bookingUrl} target="_blank" rel="noopener noreferrer">
-              Request a Commercial Quote
+            <a
+              className="btn btn--primary"
+              href={bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("commercial.quote")}
             </a>
             <a className="btn btn--ghost" href="/services">
-              See All Services
+              {t("commercial.seeAll")}
             </a>
           </div>
         </div>
@@ -38,20 +43,9 @@ function Commercial() {
       <section className="c-intro container">
         <div className="c-intro__grid">
           <div className="c-intro__text">
-            <h2>Built for Vans, Light Trucks & Small Fleets</h2>
-            <p>
-              At <strong>Dennis General Mechanic</strong>, we know downtime
-              costs money. Whether you run delivery vans, trades trucks, or
-              service vehicles, our team focuses on fast diagnostics, clear
-              communication, and reliable repairs that keep your drivers on
-              schedule.
-            </p>
-            <p>
-              From tires and brakes to electrical and engine diagnostics, we
-              service most makes and models with OEM-grade parts and modern
-              equipment. We’ll help you plan maintenance, reduce surprise
-              breakdowns, and stretch your operating budget.
-            </p>
+            <h2>{t("commercial.introH")}</h2>
+            <p>{t("commercial.introP1")}</p>
+            <p>{t("commercial.introP2")}</p>
           </div>
 
           <figure className="c-photo tall">
@@ -83,12 +77,12 @@ function Commercial() {
       {/* CALLOUT STRIP */}
       <section className="c-strip">
         <div className="container">
-          <h3>Why Businesses Choose Dennis General Mechanic</h3>
+          <h3>{t("commercial.stripH")}</h3>
           <ul className="c-benefits">
-            <li>Fast turnarounds & clear ETAs</li>
-            <li>OEM-grade parts & modern diagnostics</li>
-            <li>Up-front estimates—no surprises</li>
-            <li>Maintenance plans that fit your routes</li>
+            <li>{t("commercial.b1")}</li>
+            <li>{t("commercial.b2")}</li>
+            <li>{t("commercial.b3")}</li>
+            <li>{t("commercial.b4")}</li>
           </ul>
         </div>
       </section>
@@ -96,21 +90,23 @@ function Commercial() {
       {/* SERVICES OFFERED (two-column list + image) */}
       <section className="c-offer container">
         <div className="c-offer__text">
-          <h2>Commercial services we offer</h2>
+          <h2>{t("commercial.offerH")}</h2>
           <ul className="c-list">
-            <li>Fleet maintenance programs (oil, filters, inspections)</li>
-            <li>Brake service (pads/rotors, hydraulics, ABS diagnostics)</li>
-            <li>Tires: mount/balance, rotations, flats, alignments</li>
-            <li>Engine & electrical diagnostics (OBD-II, sensors, charging)</li>
-            <li>Suspension & steering (shocks/struts, tie-rods, ball joints)</li>
-            <li>Cooling system service (radiators, thermostats, flushes)</li>
+            {t("commercial.list", []).map((li, i) => (
+              <li key={i}>{li}</li>
+            ))}
           </ul>
           <div className="c-cta-row">
-            <a className="btn btn--primary" href={bookingUrl} target="_blank" rel="noopener noreferrer">
-              Request a Commercial Quote
+            <a
+              className="btn btn--primary"
+              href={bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("commercial.quote")}
             </a>
             <a className="btn btn--ghost" href="/about">
-              Learn About Our Shop
+              {t("commercial.learn")}
             </a>
           </div>
         </div>
@@ -127,11 +123,8 @@ function Commercial() {
       {/* OPTIONAL: CLIENT QUOTE (no contact form) */}
       <section className="c-quote">
         <div className="container">
-          <blockquote>
-            “Dennis keeps our work vans on the road. Honest, fast and fair
-            pricing—exactly what a small business needs.”
-          </blockquote>
-          <cite>— Local Business Owner</cite>
+          <blockquote>{t("commercial.quoteBlock")}</blockquote>
+          <cite>{t("commercial.quoteBy")}</cite>
         </div>
       </section>
     </main>

@@ -1,8 +1,11 @@
 // src/pages/Home.js
 import React, { useRef } from "react";
 import "../styles/home.css";
+import { useI18n } from "../i18n";
 
 export default function Home() {
+  const { t } = useI18n();
+
   const bannerImage = "/images/services/imagebanner.webp";
   const bookingUrl =
     "https://vipshopmanagement.com/schedule-appointment.php?SubID=RZZcwDvHbo6Kg5sA";
@@ -21,11 +24,11 @@ export default function Home() {
   ];
 
   const QUICK = [
-    { label: "Oil Change", q: "oil" },
-    { label: "Brakes", q: "brake" },
-    { label: "Diagnostics", q: "diagnostic" },
-    { label: "Alignment", q: "alignment" },
-    { label: "Tires", q: "tire" },
+    { label: t("home.quick.0"), q: "oil" },
+    { label: t("home.quick.1"), q: "brake" },
+    { label: t("home.quick.2"), q: "diagnostic" },
+    { label: t("home.quick.3"), q: "alignment" },
+    { label: t("home.quick.4"), q: "tire" },
   ];
 
   // Testimonials (newest → oldest)
@@ -96,8 +99,8 @@ export default function Home() {
         />
         <div className="hero__shade" aria-hidden="true" />
         <div className="hero__content container">
-          <h1>Keep Your Car Running Right</h1>
-          <p>Hyattsville’s honest, full-service mechanics—fast, friendly, and fair.</p>
+          <h1>{t("home.hero.title")}</h1>
+          <p>{t("home.hero.subtitle")}</p>
           <div className="hero__cta">
             <a
               href={bookingUrl}
@@ -105,10 +108,10 @@ export default function Home() {
               rel="noopener noreferrer"
               className="btn btn--primary"
             >
-              Schedule a Reservation
+              {t("home.hero.reserve")}
             </a>
             <a className="btn btn--ghost" href="tel:2407647004">
-              Call (240) 764-7004
+              {t("home.hero.call")}
             </a>
           </div>
         </div>
@@ -120,29 +123,29 @@ export default function Home() {
           <div className="feature">
             <span className="f-emoji" aria-hidden>🔧</span>
             <div>
-              <h3>ASE-Style Expertise</h3>
-              <p>Seasoned techs, modern diagnostics, done right the first time.</p>
+              <h3>{t("home.features.oneH")}</h3>
+              <p>{t("home.features.oneP")}</p>
             </div>
           </div>
           <div className="feature">
             <span className="f-emoji" aria-hidden>⚡</span>
             <div>
-              <h3>Same-Day Service</h3>
-              <p>Quick turnarounds for common repairs and maintenance.</p>
+              <h3>{t("home.features.twoH")}</h3>
+              <p>{t("home.features.twoP")}</p>
             </div>
           </div>
           <div className="feature">
             <span className="f-emoji" aria-hidden>💬</span>
             <div>
-              <h3>Up-Front Pricing</h3>
-              <p>Clear estimates and updates—no surprises.</p>
+              <h3>{t("home.features.threeH")}</h3>
+              <p>{t("home.features.threeP")}</p>
             </div>
           </div>
           <div className="feature">
             <span className="f-emoji" aria-hidden>🛡️</span>
             <div>
-              <h3>Quality Parts</h3>
-              <p>OEM-grade components for reliability and safety.</p>
+              <h3>{t("home.features.fourH")}</h3>
+              <p>{t("home.features.fourP")}</p>
             </div>
           </div>
         </div>
@@ -167,7 +170,7 @@ export default function Home() {
       <section className="bulletin" aria-labelledby="bulletin-heading">
         <div className="container">
           <h2 id="bulletin-heading" className="section__title">
-            This Week’s Work
+            {t("home.weekTitle")}
           </h2>
           <ul className="grid">
             {jobs.map((job, index) => (
@@ -197,7 +200,7 @@ export default function Home() {
         <div className="container">
           <header className="testimonials__header">
             <h2 id="testimonials-heading" className="section__title">
-              Testimonials
+              {t("home.testimonials")}
             </h2>
             <div className="testimonials__actions">
               <button className="t-nav" aria-label="Scroll left" onClick={() => scrollBy(-1)}>‹</button>
@@ -206,20 +209,20 @@ export default function Home() {
           </header>
 
           <div className="t-track" ref={trackRef} role="list" aria-label="Customer testimonials">
-            {TESTIMONIALS.map((t, i) => (
+            {TESTIMONIALS.map((tst, i) => (
               <article className="t-card" key={i} role="listitem">
                 <header className="t-head">
-                  <div className="t-avatar" aria-hidden="true">{t.name?.[0] || "U"}</div>
+                  <div className="t-avatar" aria-hidden="true">{tst.name?.[0] || "U"}</div>
                   <div>
-                    <strong className="t-name">{t.name}</strong>
+                    <strong className="t-name">{tst.name}</strong>
                     <div className="t-sub">
-                      <span>{t.meta}</span>
+                      <span>{tst.meta}</span>
                       <span className="dot">•</span>
-                      <time>{t.when}</time>
+                      <time>{tst.when}</time>
                     </div>
                   </div>
                 </header>
-                <p className="t-text">“{t.text}”</p>
+                <p className="t-text">“{tst.text}”</p>
               </article>
             ))}
           </div>
@@ -229,13 +232,13 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="site-footer" role="contentinfo">
         <div className="container footer-links">
-          <p>© 2007-{new Date().getFullYear()} Dennis General Mechanic. All Rights Reserved.</p>
+          <p>© 2007-{new Date().getFullYear()} Dennis General Mechanic. {t("footer.rights")}</p>
           <nav aria-label="Legal and informational links">
-            <a href="/terms-of-use">Terms of Use</a> |{" "}
-            <a href="/privacy-policy">Privacy Policy</a> |{" "}
-            <a href="/your-privacy-choices">Your Privacy Choices</a> |{" "}
-            <a href="/accessibility">Accessibility</a> |{" "}
-            <a href="/sitemap">Sitemap</a>
+            <a href="/terms-of-use">{t("footer.terms")}</a> |{" "}
+            <a href="/privacy-policy">{t("footer.privacy")}</a> |{" "}
+            <a href="/your-privacy-choices">{t("footer.choices")}</a> |{" "}
+            <a href="/accessibility">{t("footer.accessibility")}</a> |{" "}
+            <a href="/sitemap">{t("footer.sitemap")}</a>
           </nav>
         </div>
       </footer>

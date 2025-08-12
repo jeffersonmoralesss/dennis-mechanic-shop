@@ -1,28 +1,45 @@
 // src/pages/Accessibility.js
 import React from "react";
+import { useI18n } from "../i18n";
 
 function Accessibility() {
+  const { t } = useI18n();
+
+  const measures = t("legal.access.measuresL", [
+    "Design and development practices aimed at WCAG 2.1 AA",
+    "Ongoing improvements based on user feedback",
+  ]);
+
   return (
     <main className="container legal-page">
-      <h1>Accessibility Statement</h1>
-      <p>Last Updated: {new Date().toLocaleDateString()}</p>
-
+      <h1>{t("legal.access.title", "Accessibility Statement")}</h1>
       <p>
-        Dennis General Mechanic is committed to ensuring digital accessibility for people with disabilities.
-        We strive to meet or exceed the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA.
+        {t("legal.access.updated", "Last Updated")}: {new Date().toLocaleDateString()}
       </p>
 
-      <h2>1. Measures to Support Accessibility</h2>
+      <p>
+        {t(
+          "legal.access.intro",
+          "Dennis General Mechanic is committed to ensuring digital accessibility for people with disabilities. We strive to meet or exceed the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA."
+        )}
+      </p>
+
+      <h2>1. {t("legal.access.measuresH", "Measures to Support Accessibility")}</h2>
       <ul>
-        <li>Design and development practices aimed at WCAG 2.1 AA</li>
-        <li>Ongoing improvements based on user feedback</li>
+        {measures.map((li, i) => (
+          <li key={i}>{li}</li>
+        ))}
       </ul>
 
-      <h2>2. Feedback</h2>
+      <h2>2. {t("legal.access.feedbackH", "Feedback")}</h2>
       <p>
-        We welcome your feedback on the accessibility of our Site. Please let us know if you encounter accessibility barriers:
+        {t(
+          "legal.access.feedbackP",
+          "We welcome your feedback on the accessibility of our Site. Please let us know if you encounter accessibility barriers:"
+        )}
         <br />
-        Email: <a href="mailto:accessibility@dennismechanic.com">accessibility@dennismechanic.com</a>
+        {t("legal.access.emailLabel", "Email:")}{" "}
+        <a href="mailto:accessibility@dennismechanic.com">accessibility@dennismechanic.com</a>
       </p>
     </main>
   );

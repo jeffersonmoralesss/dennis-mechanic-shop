@@ -1,19 +1,22 @@
 // src/components/header.js
 import React from 'react';
+import { useI18n } from '../i18n';
 
 function Header() {
+  const { t, toggleLanguage, language } = useI18n();
+
   return (
     <header style={styles.header}>
       <div style={styles.left}>
         <img
           src={`${process.env.PUBLIC_URL}/images/services/logo.png`}
-          alt="Dennis General Mechanic Logo"
+          alt={t('header.logoAlt')}
           style={styles.logoImg}
         />
       </div>
       <div style={styles.right}>
         <a href="tel:2407647004" style={styles.icon}>
-          📞 <span style={styles.label}>240-764-7004</span>
+          📞 <span style={styles.label}>{t('header.phone')}</span>
         </a>
         <a
           href="https://www.google.com/maps/search/?api=1&query=4720+Baltimore+Ave+Hyattsville+MD+20781"
@@ -21,8 +24,11 @@ function Header() {
           rel="noopener noreferrer"
           style={styles.icon}
         >
-          📍 <span style={styles.label}>4720 Baltimore Ave Hyattsville, MD 20781</span>
+          📍 <span style={styles.label}>{t('header.address')}</span>
         </a>
+        <button onClick={toggleLanguage} style={styles.langBtn}>
+          {language === 'en' ? 'ES' : 'EN'}
+        </button>
       </div>
     </header>
   );
@@ -42,15 +48,13 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
   },
-  // (kept for backward compatibility, not used now)
   logo: {
     color: 'black',
     fontSize: '1.5rem',
     fontWeight: 'bold',
   },
-  // New: image styling for the logo
   logoImg: {
-    height: 50,      // adjust size as needed
+    height: 50, // adjust size as needed
     width: 'auto',
     objectFit: 'contain',
     display: 'block',
@@ -72,6 +76,15 @@ const styles = {
   },
   menu: {
     fontSize: '1.5rem',
+    cursor: 'pointer',
+  },
+  langBtn: {
+    backgroundColor: 'black',
+    color: 'yellow',
+    border: 'none',
+    padding: '0.4rem 0.8rem',
+    borderRadius: '6px',
+    fontWeight: 'bold',
     cursor: 'pointer',
   },
 };
