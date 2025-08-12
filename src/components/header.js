@@ -18,7 +18,6 @@ function Header() {
         >
           📍 <span style={styles.label}>4720 Baltimore Ave Hyattsville, MD 20781</span>
         </a>
-        <span style={styles.menu}>☰</span>
       </div>
     </header>
   );
@@ -26,7 +25,7 @@ function Header() {
 
 const styles = {
   header: {
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     color: 'yellow',
     display: 'flex',
     justifyContent: 'space-between',
@@ -39,7 +38,7 @@ const styles = {
     fontWeight: 'bold',
   },
   logo: {
-    color: 'yellow',
+    color: 'black',
   },
   right: {
     display: 'flex',
@@ -47,7 +46,7 @@ const styles = {
     gap: '1.5rem',
   },
   icon: {
-    color: 'yellow',
+    color: 'black',
     textDecoration: 'none',
     fontSize: '1rem',
   },

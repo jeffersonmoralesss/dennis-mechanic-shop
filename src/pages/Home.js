@@ -20,12 +20,12 @@ function Home() {
   const jobs = [
     {
       title: "Brake Repair - Honda Civic",
-      image: "/images/brake.jpg",
+      image: "/images/services/brake-service.jpg",
       alt: "Mechanic replacing brake pads on a Honda Civic",
     },
     {
       title: "Oil Change - Toyota Corolla",
-      image: "/images/oil.jpg",
+      image: "/images/services/oil-change.jpg",
       alt: "Fresh oil being poured into a Toyota Corolla engine",
     },
   ];
