@@ -2,170 +2,56 @@
 import { useMemo, useState } from "react";
 import "./services.css";
 
+// 1) Good, reliable photos per CATEGORY (all services in the category will use it)
+const CATEGORY_IMAGES = {
+  "Diagnostics & Electrical":
+    "https://images.unsplash.com/photo-1583224964200-8a05384db921?q=80&w=1600&auto=format&fit=crop", // mechanic using diagnostic tablet
+  "Engine & Transmission":
+    "https://images.unsplash.com/photo-1542367597-8849ebc37a50?q=80&w=1600&auto=format&fit=crop", // detailed engine bay
+  "Maintenance & Inspection":
+    "https://images.unsplash.com/photo-1618090561644-9d6b8c36ec89?q=80&w=1600&auto=format&fit=crop", // oil change / checklist vibe
+  "Brakes & Suspension":
+    "https://images.unsplash.com/photo-1600712243866-3fe0b3f1f5e0?q=80&w=1600&auto=format&fit=crop", // brake rotor/caliper close-up
+  "Tires & Wheels":
+    "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop", // tire/wheel
+  "Glass & Body":
+    "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=1600&auto=format&fit=crop", // windshield/glass repair
+  "Towing":
+    "https://images.unsplash.com/photo-1603190287605-e6ade32fa852?q=80&w=1600&auto=format&fit=crop"  // tow truck
+};
+
+// 2) Your services (no prices)
 const SERVICES = [
   // Diagnostics & Electrical
-  {
-    id: "computerized-diagnostics",
-    title: "Computerized Diagnostics",
-    category: "Diagnostics & Electrical",
-    duration: "60–90 min",
-    desc: "OBD-II scan, fault code analysis, and live data checks to pinpoint issues fast.",
-    img: "https://images.unsplash.com/photo-1588514727390-91fd5ebaefaa?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "electrical-service",
-    title: "Electrical Service",
-    category: "Diagnostics & Electrical",
-    duration: "1–2 hrs",
-    desc: "Battery, alternator, starter testing, wiring/relay diagnostics, and repairs.",
-    img: "https://images.unsplash.com/photo-1607861407390-0b71b9b2ce46?q=80&w=1600&auto=format&fit=crop"
-  },
+  { id: "computerized-diagnostics", title: "Computerized Diagnostics", category: "Diagnostics & Electrical", duration: "60–90 min", desc: "OBD-II scan, fault code analysis, and live data checks to pinpoint issues fast." },
+  { id: "electrical-service",       title: "Electrical Service",       category: "Diagnostics & Electrical", duration: "1–2 hrs",   desc: "Battery, alternator, starter testing, wiring/relay diagnostics, and repairs." },
 
   // Engine, Transmission, Cooling & Exhaust
-  {
-    id: "engine-service",
-    title: "Engine Service",
-    category: "Engine & Transmission",
-    duration: "2–3 hrs",
-    desc: "Tune-ups, misfire diagnosis, sensors, belts/hoses, and performance checks.",
-    img: "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "transmission-service",
-    title: "Transmission Service",
-    category: "Engine & Transmission",
-    duration: "2–3 hrs",
-    desc: "Fluid exchange, filter, pan gasket (as applicable), and shifting diagnostics.",
-    img: "https://images.unsplash.com/photo-1604145559206-e3bce0040e3d?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "exhaust-service",
-    title: "Exhaust Service",
-    category: "Engine & Transmission",
-    duration: "1–2 hrs",
-    desc: "Mufflers, catalytic converters, O2 sensors, leak checks, and hangers.",
-    img: "https://images.unsplash.com/photo-1518306727298-4c228dd52405?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "radiator-service",
-    title: "Radiator Service",
-    category: "Engine & Transmission",
-    duration: "1–2 hrs",
-    desc: "Cooling system flush, leak test, pressure test, and thermostat checks.",
-    img: "https://images.unsplash.com/photo-1604668915840-580c30026e9f?q=80&w=1600&auto=format&fit=crop"
-  },
+  { id: "engine-service",       title: "Engine Service",       category: "Engine & Transmission", duration: "2–3 hrs", desc: "Tune-ups, misfire diagnosis, sensors, belts/hoses, and performance checks." },
+  { id: "transmission-service", title: "Transmission Service", category: "Engine & Transmission", duration: "2–3 hrs", desc: "Fluid exchange, filter, pan gasket (as applicable), and shifting diagnostics." },
+  { id: "exhaust-service",      title: "Exhaust Service",      category: "Engine & Transmission", duration: "1–2 hrs", desc: "Mufflers, catalytic converters, O2 sensors, leak checks, and hangers." },
+  { id: "radiator-service",     title: "Radiator Service",     category: "Engine & Transmission", duration: "1–2 hrs", desc: "Cooling system flush, leak test, pressure test, and thermostat checks." },
 
   // Maintenance & Inspection
-  {
-    id: "oil-change",
-    title: "Lube, Oil & Filter Change",
-    category: "Maintenance & Inspection",
-    duration: "45–60 min",
-    desc: "Premium oil, OEM filter, multi-point inspection, and fluid top-off.",
-    img: "https://images.unsplash.com/photo-1612198185722-6c8464b7e3aa?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "maintenance-service",
-    title: "Maintenance Service",
-    category: "Maintenance & Inspection",
-    duration: "60–90 min",
-    desc: "Factory-scheduled service: filters, fluids, belts, and general health checks.",
-    img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "state-inspection",
-    title: "State Inspection Service",
-    category: "Maintenance & Inspection",
-    duration: "30–60 min",
-    desc: "Complete safety/emissions inspection to keep you legal and safe.",
-    img: "https://images.unsplash.com/photo-1517519014922-8fc06f3cbf2a?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "wipers",
-    title: "Windshield Wipers Service",
-    category: "Maintenance & Inspection",
-    duration: "15–30 min",
-    desc: "Blade replacement and streak-free operation check for clear visibility.",
-    img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop"
-  },
+  { id: "oil-change",          title: "Lube, Oil & Filter Change", category: "Maintenance & Inspection", duration: "45–60 min", desc: "Premium oil, OEM filter, multi-point inspection, and fluid top-off." },
+  { id: "maintenance-service", title: "Maintenance Service",        category: "Maintenance & Inspection", duration: "60–90 min", desc: "Factory-scheduled service: filters, fluids, belts, and general health checks." },
+  { id: "state-inspection",    title: "State Inspection Service",   category: "Maintenance & Inspection", duration: "30–60 min", desc: "Complete safety/emissions inspection to keep you legal and safe." },
+  { id: "wipers",              title: "Windshield Wipers Service",  category: "Maintenance & Inspection", duration: "15–30 min", desc: "Blade replacement and streak-free operation check for clear visibility." },
 
   // Brakes & Suspension
-  {
-    id: "brake-service",
-    title: "Brake Service",
-    category: "Brakes & Suspension",
-    duration: "2–3 hrs",
-    desc: "Pads/rotors as needed, brake fluid test, hardware, and road test.",
-    img: "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b3?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "front-end-service",
-    title: "Front End Service",
-    category: "Brakes & Suspension",
-    duration: "1–2 hrs",
-    desc: "Steering components, tie-rods, ball joints, and alignment readiness check.",
-    img: "https://images.unsplash.com/photo-1620217494811-22d82b55b6fe?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "shocks-struts",
-    title: "Shocks & Struts Service",
-    category: "Brakes & Suspension",
-    duration: "2–4 hrs",
-    desc: "Ride control evaluation and replacement for stable handling and comfort.",
-    img: "https://images.unsplash.com/photo-1616440462410-86bf9f2b2f1d?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "suspension-service",
-    title: "Suspension Service",
-    category: "Brakes & Suspension",
-    duration: "1–3 hrs",
-    desc: "Bushings, control arms, links, and noise/vibration diagnostics.",
-    img: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51?q=80&w=1600&auto=format&fit=crop"
-  },
+  { id: "brake-service",       title: "Brake Service",          category: "Brakes & Suspension", duration: "2–3 hrs", desc: "Pads/rotors as needed, brake fluid test, hardware, and road test." },
+  { id: "front-end-service",   title: "Front End Service",      category: "Brakes & Suspension", duration: "1–2 hrs", desc: "Steering components, tie-rods, ball joints, and alignment readiness check." },
+  { id: "shocks-struts",       title: "Shocks & Struts Service",category: "Brakes & Suspension", duration: "2–4 hrs", desc: "Ride control evaluation and replacement for stable handling and comfort." },
+  { id: "suspension-service",  title: "Suspension Service",     category: "Brakes & Suspension", duration: "1–3 hrs", desc: "Bushings, control arms, links, and noise/vibration diagnostics." },
 
   // Tires & Wheels
-  {
-    id: "tire-service",
-    title: "Tire Service",
-    category: "Tires & Wheels",
-    duration: "45–75 min",
-    desc: "Rotation, balance, flat repair, tread check, and proper torque.",
-    img: "https://images.unsplash.com/photo-1517022812141-23620dba5c23?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "custom-wheels",
-    title: "Custom Wheels Service",
-    category: "Tires & Wheels",
-    duration: "1–2 hrs",
-    desc: "Aftermarket wheel fitment, mount/balance, and hub/offset verification.",
-    img: "https://images.unsplash.com/photo-1530018607912-eff2daa1bac6?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "wheel-alignments",
-    title: "Wheel Alignments",
-    category: "Tires & Wheels",
-    duration: "60–90 min",
-    desc: "Four-wheel alignment with printout and steering wheel centering.",
-    img: "https://images.unsplash.com/photo-1587145820567-88ccead9480d?q=80&w=1600&auto=format&fit=crop"
-  },
+  { id: "tire-service",        title: "Tire Service",           category: "Tires & Wheels", duration: "45–75 min", desc: "Rotation, balance, flat repair, tread check, and proper torque." },
+  { id: "custom-wheels",       title: "Custom Wheels Service",  category: "Tires & Wheels", duration: "1–2 hrs",   desc: "Aftermarket wheel fitment, mount/balance, and hub/offset verification." },
+  { id: "wheel-alignments",    title: "Wheel Alignments",       category: "Tires & Wheels", duration: "60–90 min", desc: "Four-wheel alignment with printout and steering wheel centering." },
 
   // Glass & Towing
-  {
-    id: "glass-repair",
-    title: "Glass Repair Service",
-    category: "Glass & Body",
-    duration: "45–90 min",
-    desc: "Chip/crack repair or replacement coordination for safe, clear glass.",
-    img: "https://images.unsplash.com/photo-1621570166587-53b58d8f3a1e?q=80&w=1600&auto=format&fit=crop"
-  },
-  {
-    id: "towing-service",
-    title: "Towing Service",
-    category: "Towing",
-    duration: "ETA varies",
-    desc: "Local towing and roadside assistance—call for availability and rates.",
-    img: "https://images.unsplash.com/photo-1603190287605-e6ade32fa852?q=80&w=1600&auto=format&fit=crop"
-  }
+  { id: "glass-repair",        title: "Glass Repair Service",   category: "Glass & Body", duration: "45–90 min", desc: "Chip/crack repair or replacement coordination for safe, clear glass." },
+  { id: "towing-service",      title: "Towing Service",         category: "Towing",       duration: "ETA varies", desc: "Local towing and roadside assistance—call for availability and rates." }
 ];
 
 function Services() {
@@ -186,6 +72,9 @@ function Services() {
       return matchesCat && matchesQuery;
     });
   }, [query, activeCat]);
+
+  const bookingUrl =
+    "https://vipshopmanagement.com/appointment.php?SubID=RZZcwDvHbo6Kg5sA&company=DENNIS%20GENERAL%20MECHANIC&address=4720%20BALTIMORE%20AVE%20%20%20HYATTSVILLE%20,%20MD%20%2020781&shop-phone=(240)%20764-7004&shop-email=none&web=https://&location=United%20States";
 
   return (
     <div className="services-page">
@@ -217,7 +106,11 @@ function Services() {
       <section className="grid">
         {filtered.map(svc => (
           <article className="card" key={svc.id}>
-            <img className="card-img" src={svc.img} alt={svc.title} />
+            <img
+              className="card-img"
+              src={CATEGORY_IMAGES[svc.category]}
+              alt={`${svc.title} – ${svc.category}`}
+            />
             <div className="card-body">
               <h3>{svc.title}</h3>
               <p className="desc">{svc.desc}</p>
@@ -226,7 +119,7 @@ function Services() {
                 <span className="chip">{svc.duration}</span>
               </div>
               <a
-                href="https://vipshopmanagement.com/appointment.php?SubID=RZZcwDvHbo6Kg5sA&company=DENNIS%20GENERAL%20MECHANIC&address=4720%20BALTIMORE%20AVE%20%20%20HYATTSVILLE%20,%20MD%20%2020781&shop-phone=(240)%20764-7004&shop-email=none&web=https://&location=United%20States"
+                href={bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="reserve-btn"
@@ -245,5 +138,6 @@ function Services() {
 }
 
 export default Services;
+
 
 
