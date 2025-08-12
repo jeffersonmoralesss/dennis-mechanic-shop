@@ -6,7 +6,7 @@
 
 /* Hero section */
 .about-hero {
-  background: url("/images/about/garage-hero.jpg") center/cover no-repeat;
+  background: url("/images/about/aboutphoto.webp") center/cover no-repeat;
   height: 300px;
   position: relative;
   display: flex;
