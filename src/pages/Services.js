@@ -2,8 +2,10 @@
 import { useMemo, useState } from "react";
 import "./services.css";
 
+// Fallback image for services that don't have one yet
 const DEFAULT_IMG = "/mechanicshopcoverimage.webp";
 
+// Your services with updated local image paths
 const SERVICES = [
   // Diagnostics & Electrical
   {
@@ -64,28 +66,31 @@ const SERVICES = [
     category: "Maintenance & Inspection",
     duration: "45–60 min",
     desc: "Premium oil, OEM filter, multi-point inspection, and fluid top-off.",
-    img: "/images/services/oil-change.avif"
+    img: "/images/services/oil-change.jpg"
   },
   {
     id: "maintenance-service",
     title: "Maintenance Service",
     category: "Maintenance & Inspection",
     duration: "60–90 min",
-    desc: "Factory-scheduled service: filters, fluids, belts, and general health checks."
+    desc: "Factory-scheduled service: filters, fluids, belts, and general health checks.",
+    img: "/images/services/maintenance-service.jpg"
   },
   {
     id: "state-inspection",
     title: "State Inspection Service",
     category: "Maintenance & Inspection",
     duration: "30–60 min",
-    desc: "Complete safety/emissions inspection to keep you legal and safe."
+    desc: "Complete safety/emissions inspection to keep you legal and safe.",
+    img: "/images/services/state-inspection.webp"
   },
   {
     id: "wipers",
     title: "Windshield Wipers Service",
     category: "Maintenance & Inspection",
     duration: "15–30 min",
-    desc: "Blade replacement and streak-free operation check for clear visibility."
+    desc: "Blade replacement and streak-free operation check for clear visibility.",
+    img: "/images/services/wipers.jpg"
   },
 
   // Brakes & Suspension
@@ -94,28 +99,32 @@ const SERVICES = [
     title: "Brake Service",
     category: "Brakes & Suspension",
     duration: "2–3 hrs",
-    desc: "Pads/rotors as needed, brake fluid test, hardware, and road test."
+    desc: "Pads/rotors as needed, brake fluid test, hardware, and road test.",
+    img: "/images/services/brake-service.jpg"
   },
   {
     id: "front-end-service",
     title: "Front End Service",
     category: "Brakes & Suspension",
     duration: "1–2 hrs",
-    desc: "Steering components, tie-rods, ball joints, and alignment readiness check."
+    desc: "Steering components, tie-rods, ball joints, and alignment readiness check.",
+    img: "/images/services/front-end-service.jpg"
   },
   {
     id: "shocks-struts",
     title: "Shocks & Struts Service",
     category: "Brakes & Suspension",
     duration: "2–4 hrs",
-    desc: "Ride control evaluation and replacement for stable handling and comfort."
+    desc: "Ride control evaluation and replacement for stable handling and comfort.",
+    img: "/images/services/shocks-struts.jpg"
   },
   {
     id: "suspension-service",
     title: "Suspension Service",
     category: "Brakes & Suspension",
     duration: "1–3 hrs",
-    desc: "Bushings, control arms, links, and noise/vibration diagnostics."
+    desc: "Bushings, control arms, links, and noise/vibration diagnostics.",
+    img: "/images/services/suspension-service.jpg"
   },
 
   // Tires & Wheels
@@ -124,14 +133,16 @@ const SERVICES = [
     title: "Tire Service",
     category: "Tires & Wheels",
     duration: "45–75 min",
-    desc: "Rotation, balance, flat repair, tread check, and proper torque."
+    desc: "Rotation, balance, flat repair, tread check, and proper torque.",
+    img: "/images/services/tire-service.webp"
   },
   {
     id: "custom-wheels",
     title: "Custom Wheels Service",
     category: "Tires & Wheels",
     duration: "1–2 hrs",
-    desc: "Aftermarket wheel fitment, mount/balance, and hub/offset verification."
+    desc: "Aftermarket wheel fitment, mount/balance, and hub/offset verification.",
+    img: "/images/services/custom-wheels.avif"
   },
   {
     id: "wheel-alignments",
