@@ -74,7 +74,6 @@ export default function Home() {
     },
   ];
 
-  // testimonials scroller
   const trackRef = useRef(null);
   const scrollBy = (dir = 1) => {
     const el = trackRef.current;
@@ -115,7 +114,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURES – overlaps hero */}
+      {/* FEATURES */}
       <section className="features">
         <div className="container features__grid">
           <div className="feature">

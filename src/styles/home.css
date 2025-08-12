@@ -21,10 +21,21 @@
   position: relative; z-index: 1;
   padding-top: clamp(2rem, 6vw, 4rem);
   display: grid; gap: 1rem;
-  color: #fff;
+  color: #fff !important; /* force white for headline + subhead */
 }
-.hero__content h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin: 0; }
-.hero__content p { font-size: clamp(1rem, 2vw, 1.2rem); margin: 0; opacity: .95; }
+.hero__content h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin: 0;
+  color: #fff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,.45);
+}
+.hero__content p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin: 0;
+  color: #fff !important;
+  opacity: 1 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,.45);
+}
 .hero__cta { display: flex; gap: .75rem; flex-wrap: wrap; }
 
 .btn--ghost {
@@ -48,10 +59,7 @@
   box-shadow: 0 10px 24px rgba(0,0,0,.08);
   padding: 1rem;
 }
-.feature {
-  display: flex; gap: .75rem; align-items: flex-start;
-  padding: .6rem .4rem;
-}
+.feature { display: flex; gap: .75rem; align-items: flex-start; padding: .6rem .4rem; }
 .f-emoji { font-size: 1.6rem; }
 
 /* ====== QUICK LINKS ====== */
@@ -87,24 +95,11 @@
 .card__title { margin: 0; font-weight: 700; }
 
 /* ====== TESTIMONIALS ====== */
-.testimonials {
-  position: relative;
-  padding: clamp(2rem, 5vw, 3.5rem) 0;
-  color: #fff;
-}
-.testimonials__overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.75));
-  z-index: 0;
-}
-.testimonials .container,
-.testimonials__header,
-.t-track { position: relative; z-index: 1; }
+.testimonials { position: relative; padding: clamp(2rem, 5vw, 3.5rem) 0; color: #fff; }
+.testimonials__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.75)); z-index: 0; }
+.testimonials .container, .testimonials__header, .t-track { position: relative; z-index: 1; }
 
-.testimonials__header {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; margin-bottom: 1rem;
-}
+.testimonials__header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
 .testimonials__actions { display: flex; gap: .5rem; }
 .t-nav {
   background: rgba(255,255,255,.12);
@@ -116,34 +111,14 @@
   transition: transform .15s ease, background .15s ease;
 }
 .t-nav:hover { background: rgba(255,255,255,.18); transform: translateY(-1px); }
-
-.t-track {
-  display: flex; gap: 1rem;
-  overflow-x: auto; scroll-snap-type: x mandatory;
-  padding: .5rem .25rem 0;
-}
-.t-track::-webkit-scrollbar { height: 10px; }
-.t-track::-webkit-scrollbar-track { background: rgba(255,255,255,.08); border-radius: 999px; }
-.t-track::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); border-radius: 999px; }
-
+.t-track { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: .5rem .25rem 0; }
 .t-card {
-  scroll-snap-align: start;
-  flex: 0 0 min(540px, 88vw);
-  background: rgba(17, 24, 39, .88);
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 16px;
-  box-shadow: 0 12px 28px rgba(0,0,0,.35);
-  padding: 1.1rem 1.25rem;
+  scroll-snap-align: start; flex: 0 0 min(540px, 88vw);
+  background: rgba(17,24,39,.88); border: 1px solid rgba(255,255,255,.18);
+  border-radius: 16px; box-shadow: 0 12px 28px rgba(0,0,0,.35); padding: 1.1rem 1.25rem;
 }
-.t-head {
-  display: flex; align-items: center; gap: .8rem;
-  margin-bottom: .6rem;
-}
-.t-avatar {
-  width: 42px; height: 42px; border-radius: 999px;
-  background: #111; border: 2px solid var(--brand-yellow, #FFD400);
-  display: grid; place-items: center; font-weight: 800;
-}
+.t-head { display: flex; align-items: center; gap: .8rem; margin-bottom: .6rem; }
+.t-avatar { width: 42px; height: 42px; border-radius: 999px; background: #111; border: 2px solid var(--brand-yellow, #D4AF37); display: grid; place-items: center; font-weight: 800; }
 .t-name { font-size: 1.05rem; }
 .t-sub { color: rgba(255,255,255,.8); font-size: .92rem; }
 .dot { margin: 0 .35rem; color: rgba(255,255,255,.5); }
@@ -158,13 +133,16 @@
   .hero__cta { flex-direction: column; align-items: flex-start; }
 }
 
-/* ====== HOME COMPACT TWEAKS (tighten spacing & make hero touch nav) ====== */
-header.nav + main > .hero,
-main > .hero { margin: 0 !important; padding: 0 !important; }
-main > .hero { margin-top: -1px; } /* hide any thin gap */
+/* ====== HOME COMPACT TWEAKS (flush hero with nav + tighter spacing) ====== */
+/* On the home page, override the global nav offset so the banner touches the black nav */
+main { padding-top: 0 !important; }
+.hero { margin-top: 0 !important; }
+/* If a sub-pixel seam appears on some displays, nudge up slightly */
+header.nav + main > .hero { margin-top: -2px !important; }
+
 main > section { padding-block: clamp(1rem, 3vw, 2rem); }
-.features { margin-top: -3rem; }
-@media (max-width: 900px){ .features { margin-top: -1.5rem; } }
+.features { margin-top: -3.25rem; }
+@media (max-width: 900px){ .features { margin-top: -1.75rem; } }
 .quick { padding-top: .5rem; }
 .grid { gap: .85rem; }
 .card__img { height: 180px; }

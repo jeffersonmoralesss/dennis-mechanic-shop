@@ -2,124 +2,69 @@
    Global Base / index.css
    ========================= */
 
-/* 1) Box sizing + margin reset */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 
-/* 2) Theme variables */
+/* Theme variables */
 :root {
-  --brand-yellow: #FFD400;
+  --brand-yellow: #D4AF37;      /* rich dark gold */
+  --brand-yellow-600: #C59B2A;  /* darker */
+  --brand-yellow-700: #B68A16;  /* deepest accent */
   --ink: #111111;
   --muted: #666666;
   --border: #e6e6e6;
-  --nav-h: 64px; /* adjust to your header height if sticky/fixed */
-
-  /* Global font stack */
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-               "Helvetica Neue", Arial, "Noto Sans",
-               "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --nav-h: 64px;
 }
 
-/* 3) Page background + typography (forces white site background) */
 html, body, #root {
   min-height: 100%;
   background: #ffffff !important;
   color: var(--ink);
-  font-family: var(--font-sans);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings to match Services page vibe */
-h1 {
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  margin: 0 0 .25rem;
-}
-h2 {
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  font-size: clamp(1.4rem, 2.8vw, 1.8rem);
-  margin: .5rem 0;
-}
-h3 {
-  font-weight: 700;
-  letter-spacing: -0.005em;
-  font-size: 1.1rem;
-  margin: .5rem 0;
-}
-
-/* Paragraph / small text */
-p { color: var(--muted); }
-
-/* 4) Main content padding to avoid nav overlap (if header is sticky/fixed) */
 main { padding-top: var(--nav-h); }
 
-/* 5) Media + links */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-yellow); outline-offset: 2px; }
 
-/* 6) Form + button basics */
-button, input, select, textarea {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  color: inherit;
-}
+button, input, select, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
 
-/* 7) Containers and sections */
-.container {
-  width: min(1100px, 92%);
-  margin-inline: auto;
-}
+.container { width: min(1100px, 92%); margin-inline: auto; }
 section { padding-block: clamp(2rem, 5vw, 4rem); }
 .section__title { margin: 0 0 1rem 0; font-weight: 800; }
 
-/* 8) Utility classes */
 .hidden { display: none !important; }
 .text-center { text-align: center; }
 .muted { color: var(--muted); }
 .border { border: 1px solid var(--border); }
 
-/* 9) Buttons */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  padding: .8rem 1.2rem;
-  border: none;
-  border-radius: 12px;
-  font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  padding: .8rem 1.2rem; border: none; border-radius: 12px; font-weight: 700;
   transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
-  font-family: var(--font-sans);
 }
-.btn--primary {
-  background: #000000;
-  color: #ffffff;
-  box-shadow: 0 6px 18px rgba(0,0,0,.18);
-}
+.btn--primary { background: #000; color: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.18); }
 .btn--primary:hover { transform: translateY(-1px); }
 
-/* 10) Nav (optional; safe defaults if you use a sticky header) */
 header.nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: #000;           /* your yellow/black theme header */
-  color: #fff;
+  position: sticky; top: 0; z-index: 50;
+  background: #000; color: #fff;
   border-bottom: 2px solid var(--brand-yellow);
 }
 
-/* 11) Prevent unexpected global dark backgrounds */
-*::selection { background: var(--brand-yellow); color: #000; }
-/* If any component had a rogue global rule setting background:black, this line helps override */
-body *, body *::before, body *::after {
-  background-color: transparent;
+/* Top contact strip (gold bar) */
+.topbar{
+  background: linear-gradient(180deg, var(--brand-yellow), var(--brand-yellow-600));
+  color: #0c0c0c;
+  border-bottom: 1px solid rgba(0,0,0,.35);
 }
+.topbar a, .topbar span, .topbar svg { color: #0c0c0c; }
+
+*::selection { background: var(--brand-yellow); color: #000; }
+body *, body *::before, body *::after { background-color: transparent; }
