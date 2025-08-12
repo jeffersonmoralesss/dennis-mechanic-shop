@@ -5,7 +5,6 @@ import "./services.css";
 // Fallback image for services that don't have one yet
 const DEFAULT_IMG = "/mechanicshopcoverimage.webp";
 
-// Your services (only Computerized Diagnostics has a local image for now)
 const SERVICES = [
   // Diagnostics & Electrical
   {
@@ -21,7 +20,8 @@ const SERVICES = [
     title: "Electrical Service",
     category: "Diagnostics & Electrical",
     duration: "1–2 hrs",
-    desc: "Battery, alternator, starter testing, wiring/relay diagnostics, and repairs."
+    desc: "Battery, alternator, starter testing, wiring/relay diagnostics, and repairs.",
+    img: "/images/services/electrical-service.jpg"
   },
 
   // Engine & Transmission
@@ -30,14 +30,16 @@ const SERVICES = [
     title: "Engine Service",
     category: "Engine & Transmission",
     duration: "2–3 hrs",
-    desc: "Tune-ups, misfire diagnosis, sensors, belts/hoses, and performance checks."
+    desc: "Tune-ups, misfire diagnosis, sensors, belts/hoses, and performance checks.",
+    img: "/images/services/engine-service.jpg"
   },
   {
     id: "transmission-service",
     title: "Transmission Service",
     category: "Engine & Transmission",
     duration: "2–3 hrs",
-    desc: "Fluid exchange, filter, pan gasket (as applicable), and shifting diagnostics."
+    desc: "Fluid exchange, filter, pan gasket (as applicable), and shifting diagnostics.",
+    img: "/images/services/transmission-service.jpg"
   },
   {
     id: "exhaust-service",
