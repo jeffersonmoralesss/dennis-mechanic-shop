@@ -149,7 +149,8 @@ const SERVICES = [
     title: "Wheel Alignments",
     category: "Tires & Wheels",
     duration: "60–90 min",
-    desc: "Four-wheel alignment with printout and steering wheel centering."
+    desc: "Four-wheel alignment with printout and steering wheel centering.",
+    img: "/images/services/wheel-alignments.jpg"
   },
 
   // Glass & Towing
@@ -158,14 +159,16 @@ const SERVICES = [
     title: "Glass Repair Service",
     category: "Glass & Body",
     duration: "45–90 min",
-    desc: "Chip/crack repair or replacement coordination for safe, clear glass."
+    desc: "Chip/crack repair or replacement coordination for safe, clear glass.",
+    img: "/images/services/glass-repair.jpg"
   },
   {
     id: "towing-service",
     title: "Towing Service",
     category: "Towing",
     duration: "ETA varies",
-    desc: "Local towing and roadside assistance—call for availability and rates."
+    desc: "Local towing and roadside assistance—call for availability and rates.",
+    img: "/images/services/towing-service.jpg"
   }
 ];
 
@@ -253,5 +256,6 @@ function Services() {
 }
 
 export default Services;
+
 
 
