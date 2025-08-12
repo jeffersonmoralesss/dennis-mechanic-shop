@@ -3,48 +3,24 @@
     position: relative;
     min-height: clamp(360px, 60vh, 720px);
     overflow: hidden;                 /* clips anything that spills */
+    background: none !important;      /* ensure no old background-image remains */
   }
   
-  /* If you previously had a background-image on .hero, REMOVE it. 
-     We are using an <img> inside <picture> instead. */
-  
-  /* Make the <picture>/<img> fill the hero at the lowest layer */
-  .hero picture,
-  .hero picture > img,
+  /* Full-bleed hero image */
   .hero__img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0;                      /* image stays underneath */
+    display: block;
+    z-index: 0;                       /* image stays underneath any future content */
   }
   
-  /* Text overlay sits above the image with a soft gradient */
-  .hero__overlay {
-    position: relative;
-    z-index: 2;
-    min-height: inherit;
-    display: grid;
-    place-items: center;
-    padding: 2rem;
-    background: linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.55));
-    text-align: left;
-  }
-  
-  .hero__title {
-    color: var(--brand-yellow);
-    font-weight: 800;
-    font-size: clamp(1.75rem, 3.5vw, 3rem);
-    line-height: 1.1;
-    text-shadow: 0 2px 6px rgba(0,0,0,.6);
-    margin: 0 0 .5rem 0;
-  }
-  
-  .hero__subtitle {
-    color: #f5f5f5;
-    margin: 0;
-  }
+  /* Kill any previous overlay/text/gradient */
+  .hero__overlay { display: none !important; }
+  .hero::before,
+  .hero::after { content: none !important; }
   
   /* ====== NAV OVERLAP GUARD (if header is fixed/sticky) ====== */
   main { padding-top: var(--nav-h, 64px); }  /* adjust to your header height */
