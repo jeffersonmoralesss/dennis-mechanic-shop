@@ -64,7 +64,7 @@ const dict = {
       heroH: "Commercial Services & Fleet Support",
       heroP:
         "Keep your business moving with dependable, fast turnaround service in Hyattsville, MD.",
-      quote: "Request a Commercial Quote",
+      quote: "Sign Up",
       seeAll: "See All Services",
       introH: "Built for Vans, Light Trucks & Small Fleets",
       introP1:
@@ -420,7 +420,7 @@ const dict = {
       heroH: "Servicios Comerciales y Soporte para Flotas",
       heroP:
         "Mantén tu negocio en movimiento con servicio confiable y rápido en Hyattsville, MD.",
-      quote: "Solicitar cotización comercial",
+      quote: "Regístrate",
       seeAll: "Ver todos los servicios",
       introH: "Para vans, camiones ligeros y flotas pequeñas",
       introP1:

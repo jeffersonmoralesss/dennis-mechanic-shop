@@ -2,7 +2,7 @@
 import React from 'react';
 import { useI18n } from '../i18n';
 
-const GOLD = '#E3B11C';     // DG gold from the logo
+const GOLD = '#C49700';     // DG gold from the logo
 const TEXT_DARK = '#111111';
 
 function Header() {

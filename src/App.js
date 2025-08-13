@@ -55,22 +55,23 @@ function App() {
   );
 }
 
-const GOLD = '#E3B11C';
+// inside App.js or your NavBar component
+const GOLD = '#C49700';
+
 const styles = {
   nav: {
-    backgroundColor: GOLD,         // match header
+    backgroundColor: '#111111',   // back to black
     padding: '1rem',
     display: 'flex',
     justifyContent: 'center',
     gap: '2rem',
-    borderBottom: `2px solid ${GOLD}`,  // keep a clean edge
+    borderBottom: `2px solid ${GOLD}`, // thin gold underline
   },
   link: {
-    color: '#111',                 // dark text on gold for contrast
+    color: GOLD,                  // gold text on black
     textDecoration: 'none',
     fontWeight: 'bold',
   },
 };
-
 
 export default App;
