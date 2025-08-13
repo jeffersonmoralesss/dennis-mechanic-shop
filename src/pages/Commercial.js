@@ -50,7 +50,7 @@ function Commercial() {
 
           <figure className="c-photo tall">
             <img
-              src="/images/services/tire-service.webp"
+              src="/images/services/fleet-service.webp"
               alt="Commercial tire service and mounting"
               loading="lazy"
             />
@@ -66,7 +66,7 @@ function Commercial() {
 
           <figure className="c-photo">
             <img
-              src="/images/services/wheel-alignments.jpg"
+              src="/images/services/truck.jpeg"
               alt="Wheel alignment for steady handling and tire life"
               loading="lazy"
             />

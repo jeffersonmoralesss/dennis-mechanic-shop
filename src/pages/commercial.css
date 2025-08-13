@@ -119,3 +119,57 @@
   margin: 0; font-size: clamp(1.05rem, 2.4vw, 1.25rem); font-weight: 700; color: #111;
 }
 .c-quote cite { display: block; margin-top: .5rem; color: #6b7280; }
+
+/* ===== Commercial intro grid: make photos larger & fully covered ===== */
+.c-intro {
+    padding: clamp(1.5rem, 4vw, 3rem) 0;
+  }
+  
+  .c-intro__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.25rem;
+    align-items: stretch;            /* cards all stretch to full height */
+  }
+  
+  /* Text block stays wide on desktop */
+  .c-intro__text {
+    grid-column: span 6;
+  }
+  
+  /* Photo cards: bigger, with stronger presence */
+  .c-photo {
+    grid-column: span 3;             /* 3 across next to the text */
+    min-height: 340px;               /* taller cards */
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 12px 28px rgba(0,0,0,.10);
+  }
+  
+  /* The “tall” one becomes a big hero tile */
+  .c-photo.tall {
+    grid-column: span 6;             /* wider */
+    min-height: 520px;               /* taller */
+  }
+  
+  /* Make the image fill the whole card (fixes the small image + white gap) */
+  .c-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;               /* crop, don’t squish */
+    display: block;
+  }
+  
+  /* -------- Responsive tweaks -------- */
+  @media (max-width: 1024px) {
+    .c-intro__text { grid-column: span 12; }
+    .c-photo       { grid-column: span 6; min-height: 300px; }
+    .c-photo.tall  { grid-column: span 12; min-height: 420px; }
+  }
+  
+  @media (max-width: 640px) {
+    .c-photo      { grid-column: span 12; min-height: 280px; }
+    .c-photo.tall { min-height: 360px; }
+  }
+  
