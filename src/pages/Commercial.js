@@ -50,7 +50,7 @@ function Commercial() {
 
           <figure className="c-photo tall">
             <img
-              src="/images/services/fleet-service.webp"
+              src="/images/services/fleet-service.jpeg"
               alt="Commercial tire service and mounting"
               loading="lazy"
             />
