@@ -2,13 +2,15 @@
 import React from 'react';
 import { useI18n } from '../i18n';
 
+const GOLD = '#E3B11C';     // DG gold from the logo
+const TEXT_DARK = '#111111';
+
 function Header() {
   const { t, toggleLanguage, language } = useI18n();
 
   return (
     <header style={styles.header}>
       <div style={styles.left}>
-        {/* Ensure this file exists: public/images/services/logo.png */}
         <img
           src={`${process.env.PUBLIC_URL}/images/services/logo.png`}
           alt={t('header.logoAlt')}
@@ -30,7 +32,6 @@ function Header() {
           📍 <span style={styles.label}>{t('header.address')}</span>
         </a>
 
-        {/* Facebook button */}
         <a
           href="https://www.facebook.com/share/1G8PzHNPue/?mibextid=wwXIfr"
           target="_blank"
@@ -42,7 +43,6 @@ function Header() {
           <span style={styles.fbText}>Facebook</span>
         </a>
 
-        {/* Language toggle */}
         <button onClick={toggleLanguage} style={styles.langBtn}>
           {language === 'en' ? 'ES' : 'EN'}
         </button>
@@ -51,12 +51,10 @@ function Header() {
   );
 }
 
-const GOLD = '#C9A64B'; // gold to match the About underline
-
 const styles = {
   header: {
     backgroundColor: GOLD,
-    color: GOLD, // children override as needed
+    color: GOLD,                  // children override
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -67,8 +65,21 @@ const styles = {
   },
   left: { display: 'flex', alignItems: 'center' },
   logoImg: { height: 50, width: 'auto', objectFit: 'contain', display: 'block' },
-  right: { display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', justifyContent: 'flex-end' },
-  icon: { color: 'black', textDecoration: 'none', fontSize: '1rem', display: 'inline-flex', alignItems: 'center' },
+  right: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-end',
+  },
+  icon: {
+    color: TEXT_DARK,
+    textDecoration: 'none',
+    fontSize: '1rem',
+    display: 'inline-flex',
+    alignItems: 'center',
+    fontWeight: 600,
+  },
   label: { marginLeft: '0.25rem' },
 
   fbBtn: {
@@ -93,7 +104,7 @@ const styles = {
   fbText: { fontSize: '.92rem' },
 
   langBtn: {
-    backgroundColor: 'black',
+    backgroundColor: TEXT_DARK,
     color: GOLD,
     border: 'none',
     padding: '0.35rem 0.7rem',

@@ -55,20 +55,22 @@ function App() {
   );
 }
 
+const GOLD = '#E3B11C';
 const styles = {
   nav: {
-    backgroundColor: '#222',
+    backgroundColor: GOLD,         // match header
     padding: '1rem',
     display: 'flex',
     justifyContent: 'center',
     gap: '2rem',
-    borderBottom: '2px solid yellow',
+    borderBottom: `2px solid ${GOLD}`,  // keep a clean edge
   },
   link: {
-    color: 'yellow',
+    color: '#111',                 // dark text on gold for contrast
     textDecoration: 'none',
     fontWeight: 'bold',
   },
 };
+
 
 export default App;
