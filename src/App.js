@@ -56,7 +56,7 @@ function App() {
 }
 
 // inside App.js or your NavBar component
-const GOLD = '#C49700';
+const GOLD = '#F0B500';
 
 const styles = {
   nav: {
