@@ -342,6 +342,24 @@ const dict = {
         duration: "ETA varies",
         desc: "Local towing and roadside assistance—call for availability and rates.",
       },
+      "dot-inspection": {
+        title: "DOT & Trailer Inspection",
+        category: "Commercial",
+        duration: "60–90 min",
+        desc: "Federal DOT and trailer safety inspections to keep your fleet compliant and on the road."
+      },
+      "trailer-inspection": {
+        title: "Trailer Inspection",
+        category: "Commercial",
+        duration: "45–75 min",
+        desc: "Lights, brakes, tires, and coupling systems checked to keep trailers safe and legal."
+      },
+      "fleet-service": {
+        title: "Fleet Service",
+        category: "Commercial",
+        duration: "Varies",
+        desc: "Proactive maintenance programs, priority scheduling, and clear reporting for vans and work trucks."
+      },
     },
   },
 
@@ -679,6 +697,24 @@ const dict = {
         duration: "ETA variable",
         desc: "Remolque local y asistencia vial—llama para disponibilidad y tarifas.",
       },
+      "dot-inspection": {
+        title: "Inspección DOT y de Remolques",
+        category: "Comercial",
+        duration: "60–90 min",
+        desc: "Inspecciones federales DOT y de seguridad de remolques para mantener su flota en regla y en la carretera."
+      },
+      "trailer-inspection": {
+        title: "Inspección de Remolques",
+        category: "Comercial",
+        duration: "45–75 min",
+        desc: "Revisión de luces, frenos, llantas y sistemas de enganche para un remolque seguro y legal."
+      },
+      "fleet-service": {
+        title: "Servicio para Flotas",
+        category: "Comercial",
+        duration: "Variable",
+        desc: "Programas de mantenimiento preventivo, prioridad en agenda y reportes claros para vans y camiones de trabajo."
+      }
     },
   },
 };

@@ -8,7 +8,7 @@ function Header() {
   return (
     <header style={styles.header}>
       <div style={styles.left}>
-        {/* Make sure the image exists at: public/images/services/logo.png */}
+        {/* Ensure this file exists: public/images/services/logo.png */}
         <img
           src={`${process.env.PUBLIC_URL}/images/services/logo.png`}
           alt={t('header.logoAlt')}
@@ -51,42 +51,26 @@ function Header() {
   );
 }
 
+const GOLD = '#C9A64B'; // gold to match the About underline
+
 const styles = {
   header: {
-    backgroundColor: 'yellow',
-    color: 'yellow', // children override
+    backgroundColor: GOLD,
+    color: GOLD, // children override as needed
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '1rem 2rem',
-    borderBottom: '2px solid yellow',
-    flexWrap: 'wrap',          // allow neat wrapping on small screens
-    rowGap: '.4rem',           // space between rows when it wraps
+    borderBottom: `2px solid ${GOLD}`,
+    flexWrap: 'wrap',
+    rowGap: '.4rem',
   },
   left: { display: 'flex', alignItems: 'center' },
-  logoImg: {
-    height: 50,
-    width: 'auto',
-    objectFit: 'contain',
-    display: 'block',
-  },
-  right: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',               // tighter gap so it fits on phones
-    flexWrap: 'wrap',          // prevents overlap on narrow devices
-    justifyContent: 'flex-end',
-  },
-  icon: {
-    color: 'black',
-    textDecoration: 'none',
-    fontSize: '1rem',
-    display: 'inline-flex',
-    alignItems: 'center',
-  },
+  logoImg: { height: 50, width: 'auto', objectFit: 'contain', display: 'block' },
+  right: { display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', justifyContent: 'flex-end' },
+  icon: { color: 'black', textDecoration: 'none', fontSize: '1rem', display: 'inline-flex', alignItems: 'center' },
   label: { marginLeft: '0.25rem' },
 
-  // Facebook button
   fbBtn: {
     display: 'inline-flex',
     alignItems: 'center',
@@ -108,10 +92,9 @@ const styles = {
   },
   fbText: { fontSize: '.92rem' },
 
-  // Language toggle
   langBtn: {
     backgroundColor: 'black',
-    color: 'yellow',
+    color: GOLD,
     border: 'none',
     padding: '0.35rem 0.7rem',
     borderRadius: '6px',

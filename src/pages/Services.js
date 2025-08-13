@@ -39,6 +39,11 @@ const BASE = [
   // Glass & Towing
   { id: "glass-repair",             img: "/images/services/glass-repair.jpg" },
   { id: "towing-service",           img: "/images/services/towing-service.jpg" },
+
+  // ===== Commercial (new) =====
+  { id: "dot-inspection",           img: "/images/services/state-inspection.webp" },
+  { id: "trailer-inspection",       img: "/images/services/trailer-inspection.jpeg" },
+  { id: "fleet-service",            img: "/images/services/fleet-service.jpeg" },
 ];
 
 // Function to safely build the booking URL
@@ -50,7 +55,7 @@ function buildBookingUrl() {
     address: "4720 BALTIMORE AVE HYATTSVILLE, MD 20781",
     "shop-phone": "(240) 764-7004",
     "shop-email": "none",
-    web: "https://dennismechanicshop.com", // ✅ Use your real site
+    web: "https://dennismechanicshop.com",
     location: "United States",
   }).toString();
   return url.toString();
