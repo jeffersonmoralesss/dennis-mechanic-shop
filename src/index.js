@@ -4,15 +4,14 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 
-// Use your i18n provider (must be a named export: I18nProvider)
-import I18nProvider from './i18n';
-
+// Use the provider your hook expects
+import { LanguageProvider } from './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <I18nProvider>
+    <LanguageProvider>
       <App />
-    </I18nProvider>
+    </LanguageProvider>
   </React.StrictMode>
 );
